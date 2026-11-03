@@ -18,30 +18,6 @@
       <span class="acronym-chunk"><span class="accent-letter">R</span>ecognize mistakes</span>, and 
       <span class="acronym-chunk"><span class="accent-letter">Y</span>ield improvements</span>.
     </p>
-
-    <!-- Hero Visual Artwork Showcase referencing design/skills/image.png -->
-    <div class="hero-visual-card">
-      <div class="visual-inner">
-        <div class="fish-glow-halo"></div>
-        <img src="/dory-fish.png" alt="Dory Autonomous Coding Engine" class="hero-fish-artwork" />
-        <div class="visual-meta">
-          <div class="meta-row">
-            <span class="meta-label">ARCHITECTURE</span>
-            <span class="meta-val">Citadel 4-Layer / Tabula Rasa</span>
-          </div>
-          <div class="meta-divider"></div>
-          <div class="meta-row">
-            <span class="meta-label">VERIFICATION</span>
-            <span class="meta-val green-text">Tri-Gate Exit 0 Non-Negotiable</span>
-          </div>
-          <div class="meta-divider"></div>
-          <div class="meta-row">
-            <span class="meta-label">TOKEN BLEED</span>
-            <span class="meta-val blue-text">Zero (Disk Ground Truth)</span>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -59,12 +35,12 @@
 
   .ambient-glow {
     position: absolute;
-    top: 25%;
+    top: 35%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 720px;
     height: 420px;
-    background: radial-gradient(circle, rgba(3, 51, 255, 0.25) 0%, rgba(3, 51, 255, 0.05) 55%, transparent 80%);
+    background: radial-gradient(circle, rgba(3, 51, 255, 0.22) 0%, rgba(3, 51, 255, 0.04) 55%, transparent 80%);
     filter: blur(85px);
     pointer-events: none;
     z-index: 0;
@@ -100,7 +76,7 @@
     line-height: clamp(52px, 8vw, 109px);
     letter-spacing: clamp(-2.8px, -0.055em, -6.12px);
     color: var(--text-primary);
-    margin: 20px 0 28px 0;
+    margin: 0 0 32px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -122,7 +98,7 @@
     font-size: clamp(16px, 1.4vw, 20px);
     line-height: 1.6;
     color: var(--text-secondary);
-    margin: 0 0 28px 0;
+    margin: 0;
     font-weight: 400;
   }
 
@@ -139,105 +115,5 @@
   .accent-letter {
     color: #60a5fa;
     font-weight: 700;
-  }
-
-  /* Artwork showcase */
-  .hero-visual-card {
-    position: relative;
-    width: 100%;
-    max-width: 740px;
-    border-radius: var(--radius-lg);
-    background: rgba(18, 18, 18, 0.65);
-    border: 1px solid var(--border-subtle);
-    padding: 28px 24px;
-    backdrop-filter: blur(14px);
-    margin-top: 16px;
-  }
-
-  .visual-inner {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .fish-glow-halo {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 240px;
-    height: 240px;
-    background: radial-gradient(circle, rgba(3, 51, 255, 0.48) 0%, transparent 70%);
-    filter: blur(38px);
-    z-index: 0;
-  }
-
-  .hero-fish-artwork {
-    position: relative;
-    z-index: 1;
-    width: 210px;
-    height: auto;
-    filter: drop-shadow(0 16px 36px rgba(3, 51, 255, 0.45));
-    transition: transform 0.4s ease;
-  }
-
-  .hero-fish-artwork:hover {
-    transform: scale(1.06) translateY(-4px);
-  }
-
-  .visual-meta {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    margin-top: 20px;
-    padding: 10px 24px;
-    background: rgba(10, 10, 10, 0.75);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: var(--radius-full);
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .meta-row {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-  }
-
-  .meta-label {
-    font-family: var(--font-family-mono);
-    font-size: 9px;
-    letter-spacing: 0.1em;
-    color: var(--text-muted);
-  }
-
-  .meta-val {
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--text-secondary);
-  }
-
-  .green-text { color: #34d399; }
-  .blue-text { color: #60a5fa; }
-
-  .meta-divider {
-    width: 1px;
-    height: 20px;
-    background: rgba(255, 255, 255, 0.1);
-  }
-
-  @media (max-width: 640px) {
-    .visual-meta {
-      flex-direction: column;
-      gap: 12px;
-      border-radius: var(--radius-md);
-      align-items: flex-start;
-    }
-    .meta-divider {
-      display: none;
-    }
   }
 </style>
