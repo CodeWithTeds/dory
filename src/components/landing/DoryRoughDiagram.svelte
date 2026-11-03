@@ -85,15 +85,6 @@
       })
     );
 
-    // Red strike-through line across traditional failure
-    shapesGroup.appendChild(
-      rc.line(30, 85, 960, 85, {
-        stroke: 'rgba(239, 68, 68, 0.55)',
-        strokeWidth: 2.2,
-        roughness: 3
-      })
-    );
-
     // ─────────────────────────────────────────────────────────────────
     // PATH 2 (BOTTOM): The DORY Closed-Loop Engine (Deterministic Exit 0)
     // ─────────────────────────────────────────────────────────────────
