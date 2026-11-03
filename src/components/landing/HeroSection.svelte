@@ -26,32 +26,10 @@
   <div class="ambient-glow" aria-hidden="true"></div>
 
   <div class="hero-content">
-    <!-- Top kicker strictly referencing 'Decision 001' from design/image.png -->
-    <div class="kicker-wrapper">
-      <span class="kicker-text">The D-O-R-Y Loop · Decision 001</span>
-    </div>
-
-    <!-- Massive typography strictly adhering to design/ui.md and design/image.png with inline icons -->
+    <!-- Massive typography strictly adhering to design/ui.md without cluttering icons -->
     <h1 class="hero-title">
-      <span class="line">
-        Do the 
-        <span class="inline-icon-pill" title="Do the task: Contract Ingestion & True TDD">
-          <svg class="inline-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <polyline points="16 18 22 12 16 6"/>
-            <polyline points="8 6 2 12 8 18"/>
-          </svg>
-        </span> 
-        task.
-      </span>
-      <span class="line">
-        Yield the 
-        <span class="inline-icon-pill green-pill" title="Yield improvements: Verified Tri-Gate Exit 0">
-          <svg class="inline-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <path d="M20 6L9 17l-5-5"/>
-          </svg>
-        </span> 
-        green.
-      </span>
+      <span class="line">Do the task.</span>
+      <span class="line">Yield improvements.</span>
       <span class="line accent-now">Now.</span>
     </h1>
 
@@ -181,19 +159,6 @@
     align-items: center;
   }
 
-  /* 'Decision 001' style kicker from design/image.png */
-  .kicker-wrapper {
-    margin-bottom: 24px;
-  }
-
-  .kicker-text {
-    font-family: var(--font-family-sans);
-    font-size: 19px;
-    font-weight: 500;
-    color: #e4e4e7;
-    letter-spacing: -0.3px;
-  }
-
   /*
    * EXACT METRICS FROM design/ui.md:
    * bg:#0a0a0a
@@ -213,7 +178,7 @@
     line-height: clamp(52px, 8vw, 109px);
     letter-spacing: clamp(-2.8px, -0.055em, -6.12px);
     color: var(--text-primary);
-    margin: 0 0 24px 0;
+    margin: 20px 0 28px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -221,43 +186,13 @@
   }
 
   .hero-title .line {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: clamp(10px, 1.8vw, 24px);
+    display: block;
     word-break: keep-all;
-    flex-wrap: wrap;
   }
 
   .hero-title .accent-now {
     color: #ffffff;
     text-shadow: 0 0 45px rgba(255, 255, 255, 0.4);
-  }
-
-  /* Inline icon pill precisely styled like the gas pump and tractor in design/image.png */
-  .inline-icon-pill {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: clamp(46px, 6.2vw, 84px);
-    height: clamp(46px, 6.2vw, 84px);
-    border-radius: clamp(14px, 1.8vw, 24px);
-    background: #fafafa;
-    color: #0a0a0a;
-    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2);
-    vertical-align: middle;
-    transform: translateY(-2px);
-  }
-
-  .inline-icon-pill.green-pill {
-    background: #10b981;
-    color: #042f2e;
-    box-shadow: 0 4px 24px rgba(16, 185, 129, 0.4);
-  }
-
-  .inline-svg {
-    width: 54%;
-    height: 54%;
   }
 
   .hero-subline {
