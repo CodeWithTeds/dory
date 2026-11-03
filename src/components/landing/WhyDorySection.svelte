@@ -1,4 +1,5 @@
 <script lang="ts">
+  import DoryRoughDiagram from './DoryRoughDiagram.svelte';
   // WhyDorySection - Clean editorial documentation in layman's terms with zero borders and zero card backgrounds
 </script>
 
@@ -48,6 +49,9 @@
         </p>
       </div>
     </div>
+
+    <!-- Hand-Drawn Architecture Diagram with Rough.js (No borders, transparent) -->
+    <DoryRoughDiagram />
 
     <!-- The 4-Step Loop Breakdown (Clean typography, no borders, no boxes) -->
     <div class="loop-section">
