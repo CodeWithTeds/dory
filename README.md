@@ -1,5 +1,8 @@
 # DORY UI — Autonomous Iterative AI Coding Agent Skill
 
+[![Skill Installs](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/CodeWithTeds/dory/main/traffic/badge.json)](https://github.com/CodeWithTeds/dory/blob/main/traffic/summary.json)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
 A two-page web experience and installation hub for **DORY** (Ralph Wiggum Cold-Start Pressure Cooker Edition), built with **Svelte 5**, **TypeScript**, and **Vite**.
 
 Designed with reference to:
