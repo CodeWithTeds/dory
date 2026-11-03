@@ -9,9 +9,6 @@
     <header class="doc-header">
       <span class="doc-kicker">DOCUMENTATION · THE GROUND TRUTH</span>
       <h2 class="why-title">Why dory?</h2>
-      <p class="why-lede">
-        A plain-English explanation of why standard AI coding agents break builds, and how Dory replaces conversational guessing with deterministic engineering.
-      </p>
     </header>
 
     <!-- 3-Column Editorial (No borders, no card backgrounds) -->
@@ -144,14 +141,6 @@
     color: var(--text-primary);
     margin: 0;
     text-align: left;
-  }
-
-  .why-lede {
-    max-width: 760px;
-    font-size: 17px;
-    line-height: 1.6;
-    color: var(--text-secondary);
-    margin: 0;
   }
 
   /* 3-Column Editorial Grid: Pure text, no boxes, no cards, no borders, no backgrounds */
