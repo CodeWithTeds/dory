@@ -99,9 +99,9 @@
   <div class="hero-content">
     <!-- Massive typography strictly adhering to design/ui.md without cluttering icons -->
     <h1 class="hero-title">
-      <span class="line">Do the task.</span>
-      <span class="line">Yield improvements.</span>
-      <span class="line accent-now">Now.</span>
+      <span class="line line-1">Do the task.</span>
+      <span class="line line-2">Yield improvements.</span>
+      <span class="line line-3 accent-now">Now.</span>
     </h1>
 
     <!-- Core DORY Definition Subtitle -->
@@ -219,21 +219,37 @@
    */
   .hero-title {
     font-family: var(--font-family-sans);
-    font-size: clamp(48px, 8.2vw, 111px);
+    font-size: clamp(34px, 8.2vw, 111px);
     font-weight: 700;
-    line-height: clamp(52px, 8vw, 109px);
-    letter-spacing: clamp(-2.8px, -0.055em, -6.12px);
+    line-height: clamp(38px, 8vw, 109px);
+    letter-spacing: clamp(-1.8px, -0.055em, -6.12px);
     color: var(--text-primary);
-    margin: 0 0 32px 0;
+    margin: 0 0 28px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    width: 100%;
+    max-width: 100%;
   }
 
   .hero-title .line {
     display: block;
-    word-break: keep-all;
+    word-break: normal;
+    overflow-wrap: break-word;
+  }
+
+  /* Staggered entrance text animation when opening the site */
+  .hero-title .line-1 {
+    animation: revealHeroText 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.08s both;
+  }
+
+  .hero-title .line-2 {
+    animation: revealHeroText 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.24s both;
+  }
+
+  .hero-title .line-3 {
+    animation: revealHeroNow 1s cubic-bezier(0.16, 1, 0.3, 1) 0.42s both;
   }
 
   .hero-title .accent-now {
@@ -243,11 +259,85 @@
 
   .hero-subline {
     max-width: 820px;
-    font-size: clamp(16px, 1.4vw, 20px);
+    font-size: clamp(14px, 1.4vw, 20px);
     line-height: 1.6;
     color: var(--text-secondary);
     margin: 0;
     font-weight: 400;
+    animation: revealSubline 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.6s both;
+  }
+
+  .launch-strip-container {
+    animation: revealActions 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.75s both;
+  }
+
+  .ambient-glow {
+    animation: ambientBreathe 1.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  @keyframes revealHeroText {
+    0% {
+      opacity: 0;
+      transform: translateY(28px);
+      filter: blur(8px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+  }
+
+  @keyframes revealHeroNow {
+    0% {
+      opacity: 0;
+      transform: translateY(28px) scale(0.97);
+      filter: blur(8px);
+      text-shadow: 0 0 0px rgba(255, 255, 255, 0);
+    }
+    60% {
+      opacity: 1;
+      text-shadow: 0 0 50px rgba(255, 255, 255, 0.6);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: blur(0);
+      text-shadow: 0 0 45px rgba(255, 255, 255, 0.4);
+    }
+  }
+
+  @keyframes revealSubline {
+    0% {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes revealActions {
+    0% {
+      opacity: 0;
+      transform: translateY(22px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes ambientBreathe {
+    0% {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.85);
+    }
+    100% {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
   }
 
   .dory-highlight {
@@ -486,24 +576,84 @@
   }
 
   @media (max-width: 860px) {
-    .launch-strip-container {
-      flex-direction: column;
-      align-items: center;
-      gap: 32px;
+    .hero-section {
+      padding: 50px 20px 50px;
+      min-height: calc(100vh - 60px);
     }
 
-    .launch-col {
+    .hero-title {
+      font-size: clamp(34px, 8vw, 68px);
+      line-height: 1.08;
+      letter-spacing: -2px;
+      margin-bottom: 24px;
+    }
+
+    .hero-subline {
+      font-size: 15px;
+      padding: 0 12px;
+    }
+
+    .launch-strip-container {
+      margin-top: 40px;
+      flex-direction: column;
       align-items: center;
+      gap: 28px;
       width: 100%;
     }
 
+    .launch-col {
+      align-items: stretch;
+      width: 100%;
+      max-width: 540px;
+    }
+
     .agents-col {
-      max-width: 100%;
+      max-width: 540px;
+      width: 100%;
     }
 
     .terminal-input-box {
       width: 100%;
       max-width: 100%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero-section {
+      padding: 36px 14px 44px;
+    }
+
+    .hero-title {
+      font-size: clamp(28px, 8.5vw, 38px);
+      line-height: 1.1;
+      letter-spacing: -1.2px;
+      margin-bottom: 18px;
+    }
+
+    .hero-subline {
+      font-size: 13.5px;
+      line-height: 1.55;
+      padding: 0 4px;
+    }
+
+    .terminal-input-box {
+      padding: 10px 12px;
+      gap: 10px;
+    }
+
+    .terminal-code {
+      font-size: 11.5px;
+    }
+
+    .launch-header-row {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 360px) {
+    .hero-title {
+      font-size: 26px;
+      letter-spacing: -0.8px;
     }
   }
 </style>

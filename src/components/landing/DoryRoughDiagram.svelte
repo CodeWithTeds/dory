@@ -440,12 +440,15 @@
 
   @media (max-width: 768px) {
     .rough-svg {
-      min-width: 680px;
+      min-width: 720px;
     }
 
     .rough-diagram-wrapper {
       overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
       padding-bottom: 12px;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
     }
   }
 </style>

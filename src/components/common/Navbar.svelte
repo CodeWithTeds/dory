@@ -96,6 +96,10 @@
   }
 
   @media (max-width: 768px) {
+    .navbar {
+      height: 60px;
+    }
+
     .nav-inner {
       padding: 0 16px;
     }

@@ -288,4 +288,34 @@
       gap: 24px;
     }
   }
+
+  @media (max-width: 480px) {
+    .why-dory-section {
+      padding: 50px 16px 70px;
+    }
+
+    .why-container {
+      gap: 36px;
+    }
+
+    .why-title {
+      font-size: clamp(24px, 8vw, 32px);
+    }
+
+    .col-title {
+      font-size: 18px;
+    }
+
+    .col-text, .col-subtext {
+      font-size: 13.5px;
+    }
+
+    .loop-title {
+      font-size: 20px;
+    }
+
+    .step-name {
+      font-size: 15px;
+    }
+  }
 </style>
