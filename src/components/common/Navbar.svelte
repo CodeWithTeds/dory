@@ -17,8 +17,14 @@
       <span class="brand-name">dory</span>
     </div>
 
-    <!-- Right Actions: Sliders Control Icon directly referencing design/image.png -->
+    <!-- Right Actions -->
     <div class="nav-actions">
+      <div class="user-badge">
+        <span class="user-name">Prof Alex</span>
+        <span class="user-separator">·</span>
+        <span class="user-role">Software Dev</span>
+      </div>
+
       <button 
         class="icon-control-btn" 
         title={currentRoute === 'landing' ? 'Open Installation Hub' : 'Back to Home'}
@@ -83,7 +89,41 @@
   .nav-actions {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 14px;
+  }
+
+  .user-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-full);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: -0.2px;
+    user-select: none;
+    transition: all var(--transition-fast);
+  }
+
+  .user-badge:hover {
+    background: rgba(255, 255, 255, 0.07);
+    border-color: var(--border-hover);
+  }
+
+  .user-name {
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+
+  .user-separator {
+    color: var(--text-muted);
+    font-size: 11px;
+  }
+
+  .user-role {
+    color: var(--text-secondary);
   }
 
   .icon-control-btn {
@@ -115,6 +155,18 @@
   @media (max-width: 768px) {
     .nav-inner {
       padding: 0 16px;
+    }
+
+    .user-badge {
+      padding: 5px 10px;
+      font-size: 12px;
+      gap: 4px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .user-role, .user-separator {
+      display: none;
     }
   }
 </style>
