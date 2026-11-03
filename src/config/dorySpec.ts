@@ -8,7 +8,7 @@ export const DORY_META = {
   tagline: 'Just keep coding, just keep coding! AFK self-healing until 100% green.',
   axiom: 'Disk is Ground Truth. Zero Token Bleed. Non-negotiable Tri-Gate.',
   license: 'MIT',
-  githubUrl: 'https://github.com/agent-skills/dory',
+  githubUrl: 'https://github.com/CodeWithTeds/dory',
 };
 
 export const CITADEL_LAYERS = [
@@ -105,7 +105,7 @@ export const INSTALL_PLATFORMS: InstallPlatform[] = [
     category: 'registry',
     icon: 'Package',
     headline: 'Standard Agent Skills specification runner',
-    command: 'npx skills add dory',
+    command: 'npx skills add https://github.com/CodeWithTeds/dory --skill dory',
     installPath: '.agent/skills/dory/SKILL.md',
     instructions: [
       'Complies with standard RFC Agent Skills layout.',

@@ -2,10 +2,10 @@
   import { copyToClipboard } from '../../services/clipboard';
 
   let copied = false;
-  const commandText = 'npx skills add <owner/repo>';
+  const commandText = 'npx skills add https://github.com/CodeWithTeds/dory --skill dory';
 
   async function handleCopy() {
-    const success = await copyToClipboard(commandText, 'Copied: npx skills add <owner/repo>');
+    const success = await copyToClipboard(commandText, 'Copied: ' + commandText);
     if (success) {
       copied = true;
       setTimeout(() => {
@@ -48,7 +48,7 @@
         title="Click to copy command"
       >
         <span class="prompt-symbol">$</span>
-        <code class="command-code">npx skills add &lt;owner/repo&gt;</code>
+        <code class="command-code">npx skills add https://github.com/CodeWithTeds/dory --skill dory</code>
         <button class="copy-btn" aria-label="Copy command" type="button">
           {#if copied}
             <svg class="copy-icon check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
@@ -193,6 +193,7 @@
     backdrop-filter: blur(12px);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
     user-select: none;
+    max-width: 92vw;
   }
 
   .command-pill:hover {
@@ -207,14 +208,17 @@
     font-family: var(--font-family-mono);
     font-size: 15px;
     font-weight: 700;
+    flex-shrink: 0;
   }
 
   .command-code {
     color: #fafafa;
     font-family: var(--font-family-mono);
-    font-size: 15px;
+    font-size: clamp(12px, 2.1vw, 15px);
     font-weight: 500;
     letter-spacing: -0.2px;
+    white-space: nowrap;
+    overflow-x: auto;
   }
 
   .copy-btn {
