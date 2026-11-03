@@ -11,11 +11,24 @@
   let totalInstalls: number = localTraffic.total_clones || 0;
 
   onMount(() => {
+    // 1. Fetch real-time count from hits.sh
+    fetch('https://hits.sh/github.com/CodeWithTeds/dory.svg?label=installs&color=0333ff', { cache: 'no-store' })
+      .then((res) => res.text())
+      .then((svg) => {
+        const match = svg.match(/aria-label="[^:]+:\s*([0-9]+)"/);
+        if (match) {
+          const hitCount = parseInt(match[1], 10);
+          totalInstalls = Math.max(totalInstalls, hitCount);
+        }
+      })
+      .catch(() => {});
+
+    // 2. Fetch fresh live metrics from GitHub raw CDN as sync backup
     fetch('https://raw.githubusercontent.com/CodeWithTeds/dory/main/traffic/summary.json', { cache: 'no-store' })
       .then((res) => res.json())
       .then((data) => {
         if (typeof data.total_clones === 'number') {
-          totalInstalls = data.total_clones;
+          totalInstalls = Math.max(totalInstalls, data.total_clones);
         }
       })
       .catch(() => {});

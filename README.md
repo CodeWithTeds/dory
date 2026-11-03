@@ -1,5 +1,6 @@
 # DORY UI — Autonomous Iterative AI Coding Agent Skill
 
+[![Installs](https://hits.sh/github.com/CodeWithTeds/dory.svg?label=installs&color=0333ff&style=flat)](https://hits.sh/github.com/CodeWithTeds/dory/)
 [![Skill Installs](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/CodeWithTeds/dory/main/traffic/badge.json)](https://github.com/CodeWithTeds/dory/blob/main/traffic/summary.json)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 

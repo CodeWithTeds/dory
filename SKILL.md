@@ -16,6 +16,8 @@ license: MIT
 # DORY: Autonomous Iterative Coding Engine
 ### Ralph Wiggum Cold-Start Pressure Cooker Edition
 
+[![Installs](https://hits.sh/github.com/CodeWithTeds/dory.svg?label=installs&color=0333ff&style=flat)](https://hits.sh/github.com/CodeWithTeds/dory/)
+
 > *"Just keep coding, just keep coding!"*  
 > DORY is not blind repetition. It is relentless, deterministic, evidence-driven autonomous engineering.
 
