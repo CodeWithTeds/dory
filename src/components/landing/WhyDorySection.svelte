@@ -2,38 +2,54 @@
   import { onMount } from 'svelte';
   import DoryRoughDiagram from './DoryRoughDiagram.svelte';
 
-  let isVisible = false;
-  let sectionElement: HTMLElement;
+  let headerEl: HTMLElement;
+  let columnsEl: HTMLElement;
+  let diagramEl: HTMLElement;
+  let loopEl: HTMLElement;
+
+  let headerInView = false;
+  let columnsInView = false;
+  let diagramInView = false;
+  let loopInView = false;
 
   onMount(() => {
-    if (!sectionElement) {
-      isVisible = true;
-      return;
-    }
     const observer = new IntersectionObserver(
       (entries) => {
-        if (entries[0].isIntersecting) {
-          isVisible = true;
-          observer.disconnect();
-        }
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            if (entry.target === headerEl) headerInView = true;
+            if (entry.target === columnsEl) columnsInView = true;
+            if (entry.target === diagramEl) diagramInView = true;
+            if (entry.target === loopEl) loopInView = true;
+            observer.unobserve(entry.target);
+          }
+        });
       },
-      { threshold: 0.1 }
+      {
+        threshold: 0.15,
+        rootMargin: '0px 0px -40px 0px'
+      }
     );
-    observer.observe(sectionElement);
+
+    if (headerEl) observer.observe(headerEl);
+    if (columnsEl) observer.observe(columnsEl);
+    if (diagramEl) observer.observe(diagramEl);
+    if (loopEl) observer.observe(loopEl);
+
     return () => observer.disconnect();
   });
 </script>
 
-<section class="why-dory-section" id="why-dory" bind:this={sectionElement}>
-  <div class="why-container" class:visible={isVisible}>
-    <!-- Top-Left Documentation Header (smaller, clean, borderless) -->
-    <header class="doc-header">
+<section class="why-dory-section" id="why-dory">
+  <div class="why-container">
+    <!-- Top-Left Documentation Header (animates right when scrolled to this part) -->
+    <header class="doc-header" bind:this={headerEl} class:in-view={headerInView}>
       <span class="doc-kicker">DOCUMENTATION · THE GROUND TRUTH</span>
       <h2 class="why-title">Why dory?</h2>
     </header>
 
-    <!-- 3-Column Editorial (No borders, no card backgrounds) -->
-    <div class="doc-columns">
+    <!-- 3-Column Editorial (animates staggered when scrolled to this part) -->
+    <div class="doc-columns" bind:this={columnsEl} class:in-view={columnsInView}>
       <div class="col-item">
         <span class="col-number">01</span>
         <h3 class="col-title">The "Chat Trap"</h3>
@@ -68,13 +84,13 @@
       </div>
     </div>
 
-    <!-- Hand-Drawn Architecture Diagram with Rough.js (No borders, transparent) -->
-    <div class="diagram-anim-wrapper">
+    <!-- Hand-Drawn Architecture Diagram (animates right when scrolled to this part) -->
+    <div class="diagram-anim-wrapper" bind:this={diagramEl} class:in-view={diagramInView}>
       <DoryRoughDiagram />
     </div>
 
-    <!-- The 4-Step Loop Breakdown (Clean typography, no borders, no boxes) -->
-    <div class="loop-section">
+    <!-- The 4-Step Loop Breakdown (animates right when scrolled to this part) -->
+    <div class="loop-section" bind:this={loopEl} class:in-view={loopInView}>
       <div class="loop-header">
         <span class="loop-kicker">HOW IT WORKS</span>
         <h3 class="loop-title">The D-O-R-Y Loop</h3>
@@ -138,21 +154,13 @@
     gap: 72px;
   }
 
-  /* Header - Top Left */
+  /* Header - Top Left: Animates specifically when reached */
   .doc-header {
     text-align: left;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 12px;
-    opacity: 0;
-    transform: translateY(28px);
-    transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .visible .doc-header {
-    opacity: 1;
-    transform: translateY(0);
   }
 
   .doc-kicker {
@@ -161,6 +169,9 @@
     letter-spacing: 1.5px;
     color: var(--text-muted);
     font-weight: 600;
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.05s, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.05s;
   }
 
   .why-title {
@@ -172,6 +183,21 @@
     color: var(--text-primary);
     margin: 0;
     text-align: left;
+    opacity: 0;
+    transform: translateY(22px);
+    filter: blur(4px);
+    transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.15s, transform 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.15s, filter 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.15s;
+  }
+
+  .doc-header.in-view .doc-kicker {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .doc-header.in-view .why-title {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
   }
 
   /* 3-Column Editorial Grid: Pure text, no boxes, no cards, no borders, no backgrounds */
@@ -190,26 +216,26 @@
     border: none;
     padding: 0;
     opacity: 0;
-    transform: translateY(28px);
+    transform: translateY(32px);
     transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  .visible .col-item:nth-child(1) {
+  .doc-columns.in-view .col-item:nth-child(1) {
     opacity: 1;
     transform: translateY(0);
-    transition-delay: 0.12s;
+    transition-delay: 0.08s;
   }
 
-  .visible .col-item:nth-child(2) {
+  .doc-columns.in-view .col-item:nth-child(2) {
     opacity: 1;
     transform: translateY(0);
-    transition-delay: 0.26s;
+    transition-delay: 0.22s;
   }
 
-  .visible .col-item:nth-child(3) {
+  .doc-columns.in-view .col-item:nth-child(3) {
     opacity: 1;
     transform: translateY(0);
-    transition-delay: 0.40s;
+    transition-delay: 0.36s;
   }
 
   .col-number {
@@ -242,18 +268,19 @@
     margin: 0;
   }
 
+  /* Architecture Diagram: Animates when scrolled to this part */
   .diagram-anim-wrapper {
     opacity: 0;
-    transform: translateY(28px);
-    transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.52s, transform 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.52s;
+    transform: translateY(32px);
+    transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.1s, transform 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.1s;
   }
 
-  .visible .diagram-anim-wrapper {
+  .diagram-anim-wrapper.in-view {
     opacity: 1;
     transform: translateY(0);
   }
 
-  /* 4-Step Loop Breakdown: Clean editorial typography, no borders, no backgrounds */
+  /* 4-Step Loop Breakdown: Animates when scrolled to this part */
   .loop-section {
     display: flex;
     flex-direction: column;
@@ -262,20 +289,20 @@
     background: transparent;
     border: none;
     padding: 0;
-    opacity: 0;
-    transform: translateY(28px);
-    transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.65s, transform 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.65s;
-  }
-
-  .visible .loop-section {
-    opacity: 1;
-    transform: translateY(0);
   }
 
   .loop-header {
     display: flex;
     flex-direction: column;
     gap: 6px;
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .loop-section.in-view .loop-header {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   .loop-kicker {
@@ -308,6 +335,33 @@
     border: none;
     padding: 0;
     text-align: left;
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .loop-section.in-view .loop-step:nth-child(1) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.12s;
+  }
+
+  .loop-section.in-view .loop-step:nth-child(2) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.24s;
+  }
+
+  .loop-section.in-view .loop-step:nth-child(3) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.36s;
+  }
+
+  .loop-section.in-view .loop-step:nth-child(4) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.48s;
   }
 
   .step-letter {
