@@ -7,14 +7,14 @@
   function playDoryVoice() {
     if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
       window.speechSynthesis.cancel();
-      const utterance = new SpeechSynthesisUtterance("Just keep coding, just keep coding! Exit code zero!");
-      utterance.pitch = 1.3;
+      const utterance = new SpeechSynthesisUtterance("DORY: Do the task, observe results, recognize mistakes, and yield improvements! Just keep coding until green!");
+      utterance.pitch = 1.25;
       utterance.rate = 1.05;
       utterance.onstart = () => { isSpeaking = true; };
       utterance.onend = () => { isSpeaking = false; };
       utterance.onerror = () => { isSpeaking = false; };
       window.speechSynthesis.speak(utterance);
-      toastStore.show('🔊 Dory Audio', '"Just keep coding, just keep coding!" — Exit 0 Non-Negotiable', 'info');
+      toastStore.show('🔊 Dory Audio', '"Do the task, observe results, recognize mistakes, and yield improvements."', 'info');
     } else {
       toastStore.show('Audio notice', 'Web Speech API is not supported in this browser.', 'info');
     }
@@ -28,36 +28,73 @@
   <div class="hero-content">
     <!-- Top kicker strictly referencing 'Decision 001' from design/image.png -->
     <div class="kicker-wrapper">
-      <span class="kicker-text">Decision 001</span>
+      <span class="kicker-text">The D-O-R-Y Loop · Decision 001</span>
     </div>
 
     <!-- Massive typography strictly adhering to design/ui.md and design/image.png with inline icons -->
     <h1 class="hero-title">
       <span class="line">
-        Get the 
-        <span class="inline-icon-pill" title="Dory Fuel / Skill">
-          <svg class="inline-svg" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M19.77 7.23l.01-.01-3.72-3.72L15 4.56l2.11 2.11c-.94.36-1.61 1.26-1.61 2.33 0 1.38 1.12 2.5 2.5 2.5.36 0 .69-.08 1-.22v5.72c0 .55-.45 1-1 1s-1-.45-1-1V14c0-1.1-.9-2-2-2h-1V5c0-1.1-.9-2-2-2H6c-1.1 0-2 .9-2 2v16h10v-7.5h1.5v5c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5V9c0-.69-.28-1.32-.73-1.77zM12 10H6V6h6v4z"/>
+        Do the 
+        <span class="inline-icon-pill" title="Do the task: Contract Ingestion & True TDD">
+          <svg class="inline-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="16 18 22 12 16 6"/>
+            <polyline points="8 6 2 12 8 18"/>
           </svg>
         </span> 
-        fuel
+        task.
       </span>
       <span class="line">
-        aid to 
-        <span class="inline-icon-pill" title="Autonomous Coding Agents">
-          <svg class="inline-svg" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M20 18c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 6h16v10H4V6zm6 3h4v4h-4V9z"/>
+        Yield the 
+        <span class="inline-icon-pill green-pill" title="Yield improvements: Verified Tri-Gate Exit 0">
+          <svg class="inline-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M20 6L9 17l-5-5"/>
           </svg>
         </span> 
-        farmers.
+        green.
       </span>
       <span class="line accent-now">Now.</span>
     </h1>
 
-    <!-- Subtitle clarifying the Autonomous Agent Skill purpose -->
+    <!-- Core DORY Definition Subtitle -->
     <p class="hero-subline">
-      The Ralph Wiggum Cold-Start Pressure Cooker loop. 0 token bleed, strict static typing, and non-negotiable Tri-Gate verification until Exit Code 0.
+      <strong class="dory-highlight">DORY</strong> — 
+      <span class="acronym-chunk"><span class="accent-letter">D</span>o the task</span>, 
+      <span class="acronym-chunk"><span class="accent-letter">O</span>bserve results</span>, 
+      <span class="acronym-chunk"><span class="accent-letter">R</span>ecognize mistakes</span>, and 
+      <span class="acronym-chunk"><span class="accent-letter">Y</span>ield improvements</span>.
     </p>
+
+    <!-- 4-Phase DORY Acronym Interactive Strip -->
+    <div class="dory-acronym-bar">
+      <div class="acronym-pill">
+        <span class="pill-letter letter-d">D</span>
+        <div class="pill-text">
+          <span class="pill-verb">Do</span>
+          <span class="pill-detail">Contracts & TDD</span>
+        </div>
+      </div>
+      <div class="acronym-pill">
+        <span class="pill-letter letter-o">O</span>
+        <div class="pill-text">
+          <span class="pill-verb">Observe</span>
+          <span class="pill-detail">Tri-Gate Exit 0</span>
+        </div>
+      </div>
+      <div class="acronym-pill">
+        <span class="pill-letter letter-r">R</span>
+        <div class="pill-text">
+          <span class="pill-verb">Recognize</span>
+          <span class="pill-detail">Anti-Thrash Triage</span>
+        </div>
+      </div>
+      <div class="acronym-pill">
+        <span class="pill-letter letter-y">Y</span>
+        <div class="pill-text">
+          <span class="pill-verb">Yield</span>
+          <span class="pill-detail">Verified Commits</span>
+        </div>
+      </div>
+    </div>
 
     <!-- Pill button strictly matching 'Listen to the case' from design/image.png -->
     <div class="cta-group">
@@ -212,18 +249,103 @@
     transform: translateY(-2px);
   }
 
+  .inline-icon-pill.green-pill {
+    background: #10b981;
+    color: #042f2e;
+    box-shadow: 0 4px 24px rgba(16, 185, 129, 0.4);
+  }
+
   .inline-svg {
-    width: 58%;
-    height: 58%;
+    width: 54%;
+    height: 54%;
   }
 
   .hero-subline {
-    max-width: 680px;
-    font-size: clamp(15px, 1.3vw, 18px);
+    max-width: 820px;
+    font-size: clamp(16px, 1.4vw, 20px);
     line-height: 1.6;
     color: var(--text-secondary);
-    margin: 0 0 40px 0;
+    margin: 0 0 28px 0;
     font-weight: 400;
+  }
+
+  .dory-highlight {
+    color: #fafafa;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+
+  .acronym-chunk {
+    display: inline-block;
+  }
+
+  .accent-letter {
+    color: #60a5fa;
+    font-weight: 700;
+  }
+
+  /* 4-Phase DORY Acronym Bar */
+  .dory-acronym-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+  }
+
+  .acronym-pill {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-full);
+    backdrop-filter: blur(8px);
+    transition: all var(--transition-fast);
+  }
+
+  .acronym-pill:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--border-hover);
+    transform: translateY(-1px);
+  }
+
+  .pill-letter {
+    font-family: var(--font-family-mono);
+    font-size: 13px;
+    font-weight: 800;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .letter-d { background: rgba(59, 130, 246, 0.2); color: #60a5fa; }
+  .letter-o { background: rgba(234, 179, 8, 0.2); color: #facc15; }
+  .letter-r { background: rgba(244, 63, 94, 0.2); color: #fb7185; }
+  .letter-y { background: rgba(16, 185, 129, 0.2); color: #34d399; }
+
+  .pill-text {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    line-height: 1.2;
+  }
+
+  .pill-verb {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .pill-detail {
+    font-size: 10px;
+    font-family: var(--font-family-mono);
+    color: var(--text-muted);
   }
 
   /* Pill button group matching 'Listen to the case' */
@@ -400,6 +522,13 @@
     .hero-pill-btn {
       width: 100%;
       justify-content: center;
+    }
+    .dory-acronym-bar {
+      flex-direction: column;
+      width: 100%;
+    }
+    .acronym-pill {
+      width: 100%;
     }
   }
 </style>
