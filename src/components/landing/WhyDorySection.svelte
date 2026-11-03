@@ -1,121 +1,92 @@
 <script lang="ts">
-  // WhyDorySection - Documentation-style explanation of DORY in layman's terms
+  // WhyDorySection - Clean editorial documentation in layman's terms with zero borders and zero card backgrounds
 </script>
 
 <section class="why-dory-section" id="why-dory">
-  <!-- Subtle ambient glow matching Dory blue (#0333ff) -->
-  <div class="ambient-glow" aria-hidden="true"></div>
-
   <div class="why-container">
-    <!-- Top-Left Documentation Header -->
+    <!-- Top-Left Documentation Header (smaller, clean, borderless) -->
     <header class="doc-header">
-      <div class="doc-breadcrumb">
-        <span class="doc-tag">DOCUMENTATION</span>
-        <span class="doc-sep">/</span>
-        <span class="doc-topic">CORE CONCEPT</span>
-      </div>
+      <span class="doc-kicker">DOCUMENTATION · THE GROUND TRUTH</span>
       <h2 class="why-title">Why dory?</h2>
       <p class="why-lede">
-        A plain-English guide to how Dory prevents AI coding assistants from hallucinating, apologizing, and breaking your build.
+        A plain-English explanation of why standard AI coding agents break builds, and how Dory replaces conversational guessing with deterministic engineering.
       </p>
     </header>
 
-    <!-- Documentation Body Grid -->
-    <div class="doc-grid">
-      <!-- Card 1: The Problem -->
-      <article class="doc-card">
-        <div class="card-header">
-          <span class="card-index">01</span>
-          <span class="card-badge warn">The Problem</span>
-        </div>
-        <h3 class="card-title">The "Chat Trap"</h3>
-        <p class="card-text">
-          When normal AI coding agents hit an error, they dump hundreds of lines of error logs into the conversation. They apologize repeatedly, guess random fixes, and slowly lose track of what they were doing.
+    <!-- 3-Column Editorial (No borders, no card backgrounds) -->
+    <div class="doc-columns">
+      <div class="col-item">
+        <span class="col-number">01</span>
+        <h3 class="col-title">The "Chat Trap"</h3>
+        <p class="col-text">
+          Standard coding assistants live inside a chat prompt. When they break your code, they dump huge error logs into the conversation, apologize repeatedly, and guess random fixes.
         </p>
-        <p class="card-subtext">
-          Eventually, the chat memory fills up and the AI falsely claims the task is complete—leaving you with broken tests and corrupted code.
+        <p class="col-subtext">
+          As the chat gets longer, the AI loses focus and falsely claims the task is finished—leaving you with broken tests and corrupted files.
         </p>
-      </article>
-
-      <!-- Card 2: The Solution -->
-      <article class="doc-card">
-        <div class="card-header">
-          <span class="card-index">02</span>
-          <span class="card-badge blue">The Fix</span>
-        </div>
-        <h3 class="card-title">Trust the Computer, Not the AI</h3>
-        <p class="card-text">
-          Dory never assumes code is done because an AI thinks it "looks right." Code is only finished when three real tools on your computer agree with an <strong>Exit Code 0</strong>:
-        </p>
-        <ul class="doc-list">
-          <li><strong>Style:</strong> No syntax errors or messy formatting.</li>
-          <li><strong>Types:</strong> 100% strict type safety and valid signatures.</li>
-          <li><strong>Tests:</strong> Real automated test suite passes with 100% green.</li>
-        </ul>
-      </article>
-
-      <!-- Card 3: The Secret -->
-      <article class="doc-card">
-        <div class="card-header">
-          <span class="card-index">03</span>
-          <span class="card-badge green">The Engine</span>
-        </div>
-        <h3 class="card-title">Fresh Brain Every Step</h3>
-        <p class="card-text">
-          Chat history is fragile and temporary. Your hard drive and git history are permanent.
-        </p>
-        <p class="card-subtext">
-          Instead of keeping a giant, confusing chat log, Dory evaluates each change cleanly. It reads the real compiler errors on disk, fixes the exact file, and moves forward with <strong>zero token bleed</strong>.
-        </p>
-      </article>
-    </div>
-
-    <!-- The 4-Step Operational Loop in Layman's Terms -->
-    <div class="loop-doc-box">
-      <div class="loop-box-header">
-        <span class="loop-kicker">HOW IT WORKS</span>
-        <h3 class="loop-title">The D-O-R-Y Loop in 4 Simple Steps</h3>
       </div>
 
-      <div class="loop-steps-grid">
-        <div class="step-card">
-          <div class="step-letter">D</div>
-          <div class="step-body">
-            <h4 class="step-heading">Do the Contract</h4>
-            <p class="step-desc">
-              Write a failing test first. Dory defines what "done" means in measurable terms before touching production code.
-            </p>
-          </div>
+      <div class="col-item">
+        <span class="col-number">02</span>
+        <h3 class="col-title">Trust the Computer</h3>
+        <p class="col-text">
+          Dory never accepts code just because an AI says it "looks right." A task is only complete when your computer's native tools give unanimous approval:
+        </p>
+        <p class="col-subtext">
+          No syntax or formatting errors. 100% strict type safety. Zero failing tests. If any tool returns an error code, Dory keeps working until it's green.
+        </p>
+      </div>
+
+      <div class="col-item">
+        <span class="col-number">03</span>
+        <h3 class="col-title">Zero Token Bleed</h3>
+        <p class="col-text">
+          Chat history is temporary and easy to corrupt. Git diffs and compiler messages on your disk are permanent ground truth.
+        </p>
+        <p class="col-subtext">
+          Instead of dragging a messy conversation forward, Dory starts every iteration with a fresh brain. It diagnoses the real error on disk and fixes it without memory drift.
+        </p>
+      </div>
+    </div>
+
+    <!-- The 4-Step Loop Breakdown (Clean typography, no borders, no boxes) -->
+    <div class="loop-section">
+      <div class="loop-header">
+        <span class="loop-kicker">HOW IT WORKS</span>
+        <h3 class="loop-title">The D-O-R-Y Loop</h3>
+      </div>
+
+      <div class="loop-grid">
+        <div class="loop-step">
+          <span class="step-letter">D</span>
+          <h4 class="step-name">Do the contract</h4>
+          <p class="step-desc">
+            Write an explicit contract and a failing test first. Dory defines what success looks like before touching application code.
+          </p>
         </div>
 
-        <div class="step-card">
-          <div class="step-letter">O</div>
-          <div class="step-body">
-            <h4 class="step-heading">Observe Real Results</h4>
-            <p class="step-desc">
-              Run the actual compiler, linter, and test runner. Objective output only—no AI guesses or assumptions.
-            </p>
-          </div>
+        <div class="loop-step">
+          <span class="step-letter">O</span>
+          <h4 class="step-name">Observe real results</h4>
+          <p class="step-desc">
+            Run the actual compiler, strict typechecker, and automated tests. Objective binary results only: Exit Code 0 or fail.
+          </p>
         </div>
 
-        <div class="step-card">
-          <div class="step-letter">R</div>
-          <div class="step-body">
-            <h4 class="step-heading">Recognize the Real Error</h4>
-            <p class="step-desc">
-              If something breaks, Dory doesn't apologize in chat. It diagnoses the exact compiler diagnostic and isolates the fix.
-            </p>
-          </div>
+        <div class="loop-step">
+          <span class="step-letter">R</span>
+          <h4 class="step-name">Recognize mistakes</h4>
+          <p class="step-desc">
+            When a gate fails, Dory captures the exact compiler diagnostic from disk and isolates the fix without sycophantic chat.
+          </p>
         </div>
 
-        <div class="step-card">
-          <div class="step-letter">Y</div>
-          <div class="step-body">
-            <h4 class="step-heading">Yield Working Code</h4>
-            <p class="step-desc">
-              When all three gates pass with Exit Code 0, Dory commits verified code to git. Clean, tested, and reliable.
-            </p>
-          </div>
+        <div class="loop-step">
+          <span class="step-letter">Y</span>
+          <h4 class="step-name">Yield verified code</h4>
+          <p class="step-desc">
+            Commit clean, working code to git only after all gates pass with Exit Code 0. Zero wasted tokens, 100% verified.
+          </p>
         </div>
       </div>
     </div>
@@ -123,41 +94,27 @@
 </section>
 
 <style>
+  /* Clean editorial section: NO BORDER, NO CARD BACKGROUNDS */
   .why-dory-section {
     position: relative;
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    padding: 90px 32px 120px;
+    padding: 100px 32px 140px;
     background-color: var(--bg-canvas);
-    border-top: 1px solid var(--border-subtle);
-    overflow: hidden;
-  }
-
-  .ambient-glow {
-    position: absolute;
-    top: 25%;
-    left: 15%;
-    transform: translate(-50%, -50%);
-    width: 650px;
-    height: 380px;
-    background: radial-gradient(circle, rgba(3, 51, 255, 0.16) 0%, rgba(3, 51, 255, 0.02) 60%, transparent 80%);
-    filter: blur(85px);
-    pointer-events: none;
-    z-index: 0;
+    border: none;
+    outline: none;
   }
 
   .why-container {
-    position: relative;
-    z-index: 1;
     max-width: 1240px;
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 48px;
+    gap: 72px;
   }
 
-  /* Top-Left Documentation Header */
+  /* Header - Top Left */
   .doc-header {
     text-align: left;
     display: flex;
@@ -166,32 +123,17 @@
     gap: 12px;
   }
 
-  .doc-breadcrumb {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+  .doc-kicker {
     font-family: var(--font-family-mono);
     font-size: 11px;
     letter-spacing: 1.5px;
-  }
-
-  .doc-tag {
-    color: var(--accent-blue-bright);
+    color: var(--text-muted);
     font-weight: 600;
   }
 
-  .doc-sep {
-    color: var(--text-muted);
-  }
-
-  .doc-topic {
-    color: var(--text-muted);
-  }
-
-  /* Smaller Top-Left Why dory? heading */
   .why-title {
     font-family: var(--font-family-sans);
-    font-size: clamp(28px, 4vw, 42px);
+    font-size: clamp(28px, 3.8vw, 42px);
     font-weight: 700;
     line-height: 1.15;
     letter-spacing: -1.2px;
@@ -202,190 +144,118 @@
 
   .why-lede {
     max-width: 760px;
-    font-size: 16px;
+    font-size: 17px;
     line-height: 1.6;
     color: var(--text-secondary);
     margin: 0;
   }
 
-  /* 3-Column Documentation Cards */
-  .doc-grid {
+  /* 3-Column Editorial Grid: Pure text, no boxes, no cards, no borders, no backgrounds */
+  .doc-columns {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: 48px;
   }
 
-  .doc-card {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-md);
-    padding: 28px 24px;
+  .col-item {
     display: flex;
     flex-direction: column;
     gap: 14px;
-    transition: all var(--transition-normal);
+    text-align: left;
+    background: transparent;
+    border: none;
+    padding: 0;
   }
 
-  .doc-card:hover {
-    background: rgba(255, 255, 255, 0.04);
-    border-color: var(--border-hover);
-    transform: translateY(-2px);
-  }
-
-  .card-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .card-index {
+  .col-number {
     font-family: var(--font-family-mono);
     font-size: 13px;
+    font-weight: 600;
     color: var(--text-muted);
-    font-weight: 600;
+    letter-spacing: 0.5px;
   }
 
-  .card-badge {
-    font-size: 11px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-    padding: 3px 8px;
-    border-radius: var(--radius-full);
-  }
-
-  .card-badge.warn {
-    background: rgba(245, 158, 11, 0.12);
-    color: #fbbf24;
-    border: 1px solid rgba(245, 158, 11, 0.25);
-  }
-
-  .card-badge.blue {
-    background: rgba(3, 51, 255, 0.16);
-    color: #8bb2ff;
-    border: 1px solid rgba(3, 51, 255, 0.35);
-  }
-
-  .card-badge.green {
-    background: rgba(16, 185, 129, 0.12);
-    color: #34d399;
-    border: 1px solid rgba(16, 185, 129, 0.25);
-  }
-
-  .card-title {
-    font-size: 19px;
+  .col-title {
+    font-size: 20px;
     font-weight: 600;
     color: var(--text-primary);
     letter-spacing: -0.4px;
     margin: 0;
   }
 
-  .card-text {
-    font-size: 14px;
-    line-height: 1.6;
+  .col-text {
+    font-size: 15px;
+    line-height: 1.65;
     color: var(--text-secondary);
     margin: 0;
   }
 
-  .card-text strong {
-    color: var(--text-primary);
-  }
-
-  .card-subtext {
-    font-size: 13px;
-    line-height: 1.55;
+  .col-subtext {
+    font-size: 14px;
+    line-height: 1.6;
     color: var(--text-muted);
     margin: 0;
   }
 
-  .doc-list {
-    margin: 0;
-    padding-left: 18px;
+  /* 4-Step Loop Breakdown: Clean editorial typography, no borders, no backgrounds */
+  .loop-section {
     display: flex;
     flex-direction: column;
-    gap: 6px;
-    font-size: 13px;
-    color: var(--text-secondary);
-  }
-
-  .doc-list li strong {
-    color: var(--text-primary);
-  }
-
-  /* 4-Step Loop Documentation Container */
-  .loop-doc-box {
-    background: rgba(255, 255, 255, 0.015);
-    border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-lg);
-    padding: 36px 32px;
-    display: flex;
-    flex-direction: column;
-    gap: 28px;
-  }
-
-  .loop-box-header {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
+    gap: 36px;
     text-align: left;
+    background: transparent;
+    border: none;
+    padding: 0;
+  }
+
+  .loop-header {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
   }
 
   .loop-kicker {
     font-family: var(--font-family-mono);
     font-size: 11px;
-    color: var(--accent-cyan);
+    color: var(--text-muted);
     letter-spacing: 1.5px;
     font-weight: 600;
   }
 
   .loop-title {
-    font-size: 22px;
+    font-size: 24px;
     font-weight: 600;
     color: var(--text-primary);
-    letter-spacing: -0.5px;
+    letter-spacing: -0.6px;
     margin: 0;
   }
 
-  .loop-steps-grid {
+  .loop-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    gap: 36px;
   }
 
-  .step-card {
-    background: rgba(0, 0, 0, 0.35);
-    border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-md);
-    padding: 20px 18px;
+  .loop-step {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
+    background: transparent;
+    border: none;
+    padding: 0;
     text-align: left;
   }
 
   .step-letter {
-    width: 34px;
-    height: 34px;
-    border-radius: 8px;
-    background: rgba(3, 51, 255, 0.18);
-    border: 1px solid rgba(3, 51, 255, 0.4);
-    color: #8bb2ff;
-    font-weight: 700;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     font-family: var(--font-family-mono);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 2px;
   }
 
-  .step-body {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-
-  .step-heading {
-    font-size: 15px;
+  .step-name {
+    font-size: 16px;
     font-weight: 600;
     color: var(--text-primary);
     letter-spacing: -0.2px;
@@ -393,29 +263,36 @@
   }
 
   .step-desc {
-    font-size: 13px;
-    line-height: 1.5;
+    font-size: 14px;
+    line-height: 1.6;
     color: var(--text-secondary);
     margin: 0;
   }
 
   @media (max-width: 1024px) {
-    .doc-grid {
+    .doc-columns {
       grid-template-columns: 1fr;
+      gap: 36px;
     }
 
-    .loop-steps-grid {
+    .loop-grid {
       grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
     }
   }
 
   @media (max-width: 640px) {
     .why-dory-section {
-      padding: 60px 16px 80px;
+      padding: 70px 20px 100px;
     }
 
-    .loop-steps-grid {
+    .why-container {
+      gap: 48px;
+    }
+
+    .loop-grid {
       grid-template-columns: 1fr;
+      gap: 24px;
     }
   }
 </style>
