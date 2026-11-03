@@ -43,6 +43,14 @@ export const navigationStore = createNavigationStore();
 if (typeof window !== 'undefined') {
   window.addEventListener('hashchange', () => {
     const hash = window.location.hash.toLowerCase();
-    navigationStore.navigateTo(hash.includes('install') ? 'install' : 'landing');
+    if (hash.includes('why')) {
+      navigationStore.navigateTo('landing');
+      setTimeout(() => {
+        const el = document.getElementById('why-dory');
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }, 50);
+    } else {
+      navigationStore.navigateTo(hash.includes('install') ? 'install' : 'landing');
+    }
   });
 }
