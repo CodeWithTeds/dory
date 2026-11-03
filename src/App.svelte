@@ -1,7 +1,6 @@
 <script lang="ts">
   import { navigationStore } from './stores/navigation';
   import Navbar from './components/common/Navbar.svelte';
-  import Footer from './components/common/Footer.svelte';
   import Toast from './components/common/Toast.svelte';
   import LandingPage from './components/landing/LandingPage.svelte';
   import InstallerPage from './components/installer/InstallerPage.svelte';
@@ -19,9 +18,6 @@
       <InstallerPage />
     {/if}
   </main>
-
-  <!-- Global Footer -->
-  <Footer />
 
   <!-- Global Toast Feedback System -->
   <Toast />
