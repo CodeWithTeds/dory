@@ -143,7 +143,7 @@
 
     // Step 3: Tri-Gate Gateway (Style + Types + Tests)
     shapesGroup.appendChild(
-      rc.rectangle(660, 210, 190, 135, {
+      rc.rectangle(660, 205, 195, 145, {
         stroke: '#f59e0b',
         strokeWidth: 1.8,
         roughness: 1.5,
@@ -154,26 +154,48 @@
       })
     );
 
-    // Decision Branch A (Exit Code 0 -> Green Success)
+    // Inner highlight badge for EXIT 0 REQUIRED
     shapesGroup.appendChild(
-      rc.line(850, 277, 915, 277, {
+      rc.rectangle(675, 312, 165, 26, {
+        stroke: 'rgba(245, 158, 11, 0.6)',
+        strokeWidth: 1.4,
+        roughness: 1.3,
+        fill: 'rgba(245, 158, 11, 0.15)',
+        fillStyle: 'solid'
+      })
+    );
+
+    // Decision Branch A (Exit 0 -> Green Success)
+    shapesGroup.appendChild(
+      rc.line(855, 277, 945, 277, {
         stroke: greenStroke,
-        strokeWidth: 2.2,
+        strokeWidth: 2.4,
         roughness: 1.4
       })
     );
     shapesGroup.appendChild(
-      rc.line(905, 270, 918, 277, { stroke: greenStroke, strokeWidth: 2.2, roughness: 1.2 })
+      rc.line(935, 270, 948, 277, { stroke: greenStroke, strokeWidth: 2.2, roughness: 1.2 })
     );
     shapesGroup.appendChild(
-      rc.line(905, 284, 918, 277, { stroke: greenStroke, strokeWidth: 2.2, roughness: 1.2 })
+      rc.line(935, 284, 948, 277, { stroke: greenStroke, strokeWidth: 2.2, roughness: 1.2 })
+    );
+
+    // Green badge pill for EXIT 0
+    shapesGroup.appendChild(
+      rc.rectangle(860, 244, 78, 24, {
+        stroke: greenStroke,
+        strokeWidth: 1.6,
+        roughness: 1.4,
+        fill: 'rgba(16, 185, 129, 0.2)',
+        fillStyle: 'solid'
+      })
     );
 
     // Step 4: Y - Verified Commit (Green Box)
     shapesGroup.appendChild(
-      rc.rectangle(925, 230, 190, 95, {
+      rc.rectangle(950, 225, 175, 105, {
         stroke: greenStroke,
-        strokeWidth: 2,
+        strokeWidth: 2.2,
         roughness: 1.4,
         bowing: 1.6,
         fill: 'rgba(16, 185, 129, 0.1)',
@@ -183,33 +205,35 @@
     );
 
     // Decision Branch B (Exit != 0 -> Loop back cleanly via R - Recognize)
-    // Path: from bottom of Tri-Gate (x: 755, y: 345) down to y: 400, back to x: 460, up to bottom of Step 2 (x: 460, y: 325)
+    // Path: from bottom of Tri-Gate (x: 757, y: 350) down to y: 415, back to x: 460, up to bottom of Step 2 (x: 460, y: 335)
     shapesGroup.appendChild(
       rc.linearPath([
-        [755, 345],
-        [755, 410],
-        [460, 410],
+        [757, 350],
+        [757, 415],
+        [460, 415],
         [460, 335]
       ], {
         stroke: redStroke,
-        strokeWidth: 1.8,
+        strokeWidth: 2,
         roughness: 1.8
       })
     );
     // Arrowhead pointing back up to Step 2
     shapesGroup.appendChild(
-      rc.line(453, 345, 460, 333, { stroke: redStroke, strokeWidth: 1.8, roughness: 1.4 })
+      rc.line(453, 345, 460, 333, { stroke: redStroke, strokeWidth: 2, roughness: 1.4 })
     );
     shapesGroup.appendChild(
-      rc.line(467, 345, 460, 333, { stroke: redStroke, strokeWidth: 1.8, roughness: 1.4 })
+      rc.line(467, 345, 460, 333, { stroke: redStroke, strokeWidth: 2, roughness: 1.4 })
     );
 
-    // Badge pill around loop label
+    // Prominent Red Badge Pill around Exit != 0 label
     shapesGroup.appendChild(
-      rc.rectangle(520, 395, 175, 30, {
-        stroke: 'rgba(239, 68, 68, 0.4)',
-        strokeWidth: 1.2,
-        roughness: 1.5
+      rc.rectangle(480, 400, 260, 30, {
+        stroke: redStroke,
+        strokeWidth: 1.6,
+        roughness: 1.5,
+        fill: 'rgba(239, 68, 68, 0.2)',
+        fillStyle: 'solid'
       })
     );
   }
@@ -269,20 +293,20 @@
     <text x="460" y="298" text-anchor="middle" class="node-sub mono">Isolated workspace</text>
 
     <!-- Step 3: Tri-Gate -->
-    <text x="755" y="240" text-anchor="middle" class="node-title amber">The Tri-Gate</text>
-    <text x="755" y="265" text-anchor="middle" class="gate-item">1. Style Linting</text>
-    <text x="755" y="287" text-anchor="middle" class="gate-item">2. Strict Types</text>
-    <text x="755" y="309" text-anchor="middle" class="gate-item">3. Runtime Tests</text>
-    <text x="755" y="332" text-anchor="middle" class="gate-sub mono">Exit Code 0 Required</text>
+    <text x="757" y="232" text-anchor="middle" class="node-title amber">The Tri-Gate</text>
+    <text x="757" y="255" text-anchor="middle" class="gate-item">1. Style Linting</text>
+    <text x="757" y="275" text-anchor="middle" class="gate-item">2. Strict Types</text>
+    <text x="757" y="295" text-anchor="middle" class="gate-item">3. Runtime Tests</text>
+    <text x="757" y="329" text-anchor="middle" class="gate-exit-highlight">EXIT 0 REQUIRED</text>
 
     <!-- Success Output -->
-    <text x="1020" y="265" text-anchor="middle" class="node-title green">Y · Verified Commit</text>
-    <text x="1020" y="287" text-anchor="middle" class="node-sub">Exit Code 0 unanimous</text>
-    <text x="1020" y="305" text-anchor="middle" class="node-sub mono">git commit --verified</text>
+    <text x="1037" y="258" text-anchor="middle" class="node-title green">Y · Verified Commit</text>
+    <text x="1037" y="280" text-anchor="middle" class="node-sub bold">Exit 0 Unanimous</text>
+    <text x="1037" y="302" text-anchor="middle" class="node-sub mono">git commit --verified</text>
 
     <!-- Decision Arrow Labels -->
-    <text x="882" y="270" text-anchor="middle" class="branch-label green">== 0</text>
-    <text x="607" y="415" text-anchor="middle" class="branch-label red">R · Exit != 0 (Self-Heal from Disk)</text>
+    <text x="899" y="261" text-anchor="middle" class="branch-exit-pass">EXIT 0</text>
+    <text x="610" y="420" text-anchor="middle" class="branch-exit-fail">R · EXIT != 0 : Triage Disk & Retry</text>
   </svg>
 </div>
 
@@ -385,24 +409,33 @@
     fill: #fafafa;
   }
 
-  .gate-sub {
-    font-size: 10px;
-    fill: #f59e0b;
-    font-weight: 600;
+  .gate-exit-highlight {
+    font-family: var(--font-family-mono);
+    font-size: 11px;
+    font-weight: 800;
+    fill: #fbbf24;
+    letter-spacing: 0.8px;
   }
 
-  .branch-label {
+  .branch-exit-pass {
     font-family: var(--font-family-mono);
     font-size: 12px;
-    font-weight: 700;
+    font-weight: 800;
+    fill: #34d399;
+    letter-spacing: 0.6px;
   }
 
-  .branch-label.green {
-    fill: #10b981;
-  }
-
-  .branch-label.red {
+  .branch-exit-fail {
+    font-family: var(--font-family-mono);
+    font-size: 12px;
+    font-weight: 800;
     fill: #f87171;
+    letter-spacing: 0.5px;
+  }
+
+  .node-sub.bold {
+    font-weight: 700;
+    fill: #fafafa;
   }
 
   @media (max-width: 768px) {
