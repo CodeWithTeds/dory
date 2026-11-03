@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "dory": {
+      "source": "CodeWithTeds/dory",
+      "sourceType": "github",
+      "skillPath": "dory/SKILL.md",
+      "computedHash": "60e11ac69d832057037ec87080b8164c2238a8891b1e45ce40a389ed8da499a1"
+    }
+  }
+}
