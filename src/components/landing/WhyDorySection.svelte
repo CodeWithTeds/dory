@@ -1,10 +1,31 @@
 <script lang="ts">
+  import { onMount } from 'svelte';
   import DoryRoughDiagram from './DoryRoughDiagram.svelte';
-  // WhyDorySection - Clean editorial documentation in layman's terms with zero borders and zero card backgrounds
+
+  let isVisible = false;
+  let sectionElement: HTMLElement;
+
+  onMount(() => {
+    if (!sectionElement) {
+      isVisible = true;
+      return;
+    }
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          isVisible = true;
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+    observer.observe(sectionElement);
+    return () => observer.disconnect();
+  });
 </script>
 
-<section class="why-dory-section" id="why-dory">
-  <div class="why-container">
+<section class="why-dory-section" id="why-dory" bind:this={sectionElement}>
+  <div class="why-container" class:visible={isVisible}>
     <!-- Top-Left Documentation Header (smaller, clean, borderless) -->
     <header class="doc-header">
       <span class="doc-kicker">DOCUMENTATION · THE GROUND TRUTH</span>
@@ -48,7 +69,9 @@
     </div>
 
     <!-- Hand-Drawn Architecture Diagram with Rough.js (No borders, transparent) -->
-    <DoryRoughDiagram />
+    <div class="diagram-anim-wrapper">
+      <DoryRoughDiagram />
+    </div>
 
     <!-- The 4-Step Loop Breakdown (Clean typography, no borders, no boxes) -->
     <div class="loop-section">
@@ -122,6 +145,14 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 12px;
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .visible .doc-header {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   .doc-kicker {
@@ -158,6 +189,27 @@
     background: transparent;
     border: none;
     padding: 0;
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .visible .col-item:nth-child(1) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.12s;
+  }
+
+  .visible .col-item:nth-child(2) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.26s;
+  }
+
+  .visible .col-item:nth-child(3) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.40s;
   }
 
   .col-number {
@@ -190,6 +242,17 @@
     margin: 0;
   }
 
+  .diagram-anim-wrapper {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.52s, transform 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.52s;
+  }
+
+  .visible .diagram-anim-wrapper {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
   /* 4-Step Loop Breakdown: Clean editorial typography, no borders, no backgrounds */
   .loop-section {
     display: flex;
@@ -199,6 +262,14 @@
     background: transparent;
     border: none;
     padding: 0;
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.65s, transform 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.65s;
+  }
+
+  .visible .loop-section {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   .loop-header {

@@ -251,7 +251,7 @@
 
 <div class="rough-diagram-wrapper">
   <div class="diagram-kicker-bar">
-    <span class="diagram-tag">SKETCHED ARCHITECTURE · ROUGH.JS</span>
+    <span class="diagram-tag">SYSTEM ARCHITECTURE</span>
     <span class="diagram-caption">Chat Trap vs. Closed-Loop Tri-Gate</span>
   </div>
 
