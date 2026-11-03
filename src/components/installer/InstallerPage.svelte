@@ -1,10 +1,25 @@
 <script lang="ts">
+  import { onMount } from 'svelte';
   import PlatformSelector from './PlatformSelector.svelte';
   import TerminalEmulator from './TerminalEmulator.svelte';
   import SkillConfigurator from './SkillConfigurator.svelte';
   import SkillCodePreview from './SkillCodePreview.svelte';
   import Badge from '../common/Badge.svelte';
   import { navigationStore } from '../../stores/navigation';
+  import localTraffic from '../../../traffic/summary.json';
+
+  let totalInstalls: number = localTraffic.total_clones || 0;
+
+  onMount(() => {
+    fetch('https://raw.githubusercontent.com/CodeWithTeds/dory/main/traffic/summary.json', { cache: 'no-store' })
+      .then((res) => res.json())
+      .then((data) => {
+        if (typeof data.total_clones === 'number') {
+          totalInstalls = data.total_clones;
+        }
+      })
+      .catch(() => {});
+  });
 </script>
 
 <div class="installer-page">
@@ -30,7 +45,8 @@
           <span>Tri-Gate Ready</span>
         </div>
         <div class="meta-pill">
-          <span>100% Deterministic Exit 0</span>
+          <span class="dot-green"></span>
+          <span>{totalInstalls} Verified Installs</span>
         </div>
       </div>
     </header>

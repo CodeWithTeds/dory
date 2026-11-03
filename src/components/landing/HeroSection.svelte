@@ -5,9 +5,19 @@
 
   let copied = false;
   let totalInstalls: number = localTraffic.total_clones || 0;
+  let showStatsBadge = false;
   const commandText = 'npx skills add https://github.com/CodeWithTeds/dory --skill dory';
 
   onMount(() => {
+    // Hidden URL trigger: only show live install stats when explicitly visited via #stats or ?stats
+    const checkStatsUrl = () => {
+      const hash = window.location.hash.toLowerCase();
+      const search = window.location.search.toLowerCase();
+      showStatsBadge = hash.includes('stats') || search.includes('stats') || hash.includes('metrics');
+    };
+    checkStatsUrl();
+    window.addEventListener('hashchange', checkStatsUrl);
+
     // Attempt to fetch fresh live metrics from GitHub raw CDN
     fetch('https://raw.githubusercontent.com/CodeWithTeds/dory/main/traffic/summary.json', { cache: 'no-store' })
       .then((res) => res.json())
@@ -19,6 +29,10 @@
       .catch(() => {
         // Fallback to bundled localTraffic
       });
+
+    return () => {
+      window.removeEventListener('hashchange', checkStatsUrl);
+    };
   });
 
   async function handleCopy() {
@@ -119,11 +133,13 @@
       <div class="launch-col">
         <div class="launch-header-row">
           <span class="launch-label">TRY IT NOW</span>
-          <span class="installs-badge">
-            <span class="pulse-dot"></span>
-            <span class="installs-count">{totalInstalls}</span>
-            <span class="installs-text">installs</span>
-          </span>
+          {#if showStatsBadge}
+            <span class="installs-badge">
+              <span class="pulse-dot"></span>
+              <span class="installs-count">{totalInstalls}</span>
+              <span class="installs-text">installs</span>
+            </span>
+          {/if}
         </div>
         <div 
           class="terminal-input-box" 
