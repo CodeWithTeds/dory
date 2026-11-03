@@ -75,20 +75,10 @@
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    padding: 6px 14px;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-full);
     font-size: 13px;
     font-weight: 500;
     letter-spacing: -0.2px;
     user-select: none;
-    transition: all var(--transition-fast);
-  }
-
-  .user-badge:hover {
-    background: rgba(255, 255, 255, 0.07);
-    border-color: var(--border-hover);
   }
 
   .user-name {
@@ -111,7 +101,6 @@
     }
 
     .user-badge {
-      padding: 5px 10px;
       font-size: 12px;
       gap: 4px;
     }
