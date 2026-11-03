@@ -4,15 +4,28 @@
 
 <header class="navbar">
   <div class="nav-inner">
-    <!-- Brand -->
-    <div 
-      class="brand-group" 
-      on:click={() => navigationStore.navigateTo('landing')} 
-      role="button" 
-      tabindex="0" 
-      on:keydown={(e) => e.key === 'Enter' && navigationStore.navigateTo('landing')}
-    >
-      <span class="brand-name">dory</span>
+    <!-- Left: Brand & Links -->
+    <div class="nav-left">
+      <div 
+        class="brand-group" 
+        on:click={() => navigationStore.navigateTo('landing')} 
+        role="button" 
+        tabindex="0" 
+        on:keydown={(e) => e.key === 'Enter' && navigationStore.navigateTo('landing')}
+      >
+        <span class="brand-name">dory</span>
+      </div>
+
+      <a 
+        href="#why-dory" 
+        class="nav-link"
+        on:click|preventDefault={() => {
+          const el = document.getElementById('why-dory');
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }}
+      >
+        Why dory?
+      </a>
     </div>
 
     <!-- Right Actions -->
@@ -49,6 +62,27 @@
     align-items: center;
     justify-content: space-between;
     gap: 24px;
+  }
+
+  .nav-left {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .nav-link {
+    color: var(--text-secondary);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: -0.2px;
+    text-decoration: none;
+    transition: color var(--transition-fast);
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .nav-link:hover {
+    color: var(--text-primary);
   }
 
   .brand-group {

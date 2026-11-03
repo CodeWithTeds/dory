@@ -17,8 +17,8 @@
     min-height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: center;
-    padding: 80px 24px;
+    justify-content: flex-start;
+    padding: 80px 32px;
     background-color: var(--bg-canvas);
     border-top: 1px solid var(--border-subtle);
     overflow: hidden;
@@ -27,7 +27,7 @@
   .ambient-glow {
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: 20%;
     transform: translate(-50%, -50%);
     width: 650px;
     height: 380px;
@@ -41,12 +41,12 @@
     position: relative;
     z-index: 1;
     max-width: 1280px;
+    width: 100%;
     margin: 0 auto;
-    text-align: center;
+    text-align: left;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start;
   }
 
   /*
@@ -66,7 +66,7 @@
     letter-spacing: clamp(-2.8px, -0.055em, -6.12px);
     color: var(--text-primary);
     margin: 0;
-    text-align: center;
+    text-align: left;
     word-break: keep-all;
   }
 </style>
