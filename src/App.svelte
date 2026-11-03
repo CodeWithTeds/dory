@@ -7,8 +7,8 @@
 </script>
 
 <div class="app-shell">
-  <!-- Top Navigation with 2-page switcher -->
-  <Navbar currentRoute={$navigationStore} />
+  <!-- Top Navigation -->
+  <Navbar />
 
   <!-- Dynamic 2-Page Routing -->
   <main class="main-viewport">
