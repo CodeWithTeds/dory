@@ -77,11 +77,10 @@
       rc.rectangle(680, 50, 270, 70, {
         stroke: redStroke,
         strokeWidth: 1.6,
-        roughness: 2.4,
-        bowing: 3,
-        fill: 'rgba(239, 68, 68, 0.08)',
-        fillStyle: 'cross-hatch',
-        hachureGap: 8
+        roughness: 2.2,
+        bowing: 2.2,
+        fill: 'rgba(239, 68, 68, 0.05)',
+        fillStyle: 'solid'
       })
     );
 
@@ -95,9 +94,8 @@
         strokeWidth: 1.8,
         roughness: 1.3,
         bowing: 1.5,
-        fill: 'rgba(3, 51, 255, 0.08)',
-        fillStyle: 'hachure',
-        hachureGap: 10
+        fill: 'rgba(3, 51, 255, 0.06)',
+        fillStyle: 'solid'
       })
     );
 
@@ -122,7 +120,9 @@
         stroke: whiteStroke,
         strokeWidth: 1.8,
         roughness: 1.4,
-        bowing: 1.5
+        bowing: 1.5,
+        fill: 'rgba(255, 255, 255, 0.02)',
+        fillStyle: 'solid'
       })
     );
 
@@ -146,49 +146,58 @@
       rc.rectangle(660, 205, 195, 145, {
         stroke: '#f59e0b',
         strokeWidth: 1.8,
-        roughness: 1.5,
-        bowing: 1.8,
-        fill: 'rgba(245, 158, 11, 0.05)',
-        fillStyle: 'hachure',
-        hachureGap: 12
+        roughness: 1.4,
+        bowing: 1.5,
+        fill: 'rgba(245, 158, 11, 0.04)',
+        fillStyle: 'solid'
       })
     );
 
-    // Inner highlight badge for EXIT 0 REQUIRED
+    // Inner highlight badge for EXIT 0 REQUIRED (solid dark mask with amber border)
     shapesGroup.appendChild(
-      rc.rectangle(675, 312, 165, 26, {
-        stroke: 'rgba(245, 158, 11, 0.6)',
-        strokeWidth: 1.4,
-        roughness: 1.3,
-        fill: 'rgba(245, 158, 11, 0.15)',
+      rc.rectangle(675, 312, 165, 28, {
+        stroke: 'rgba(245, 158, 11, 0.85)',
+        strokeWidth: 1.6,
+        roughness: 1.2,
+        fill: '#0a0a0a',
         fillStyle: 'solid'
       })
     );
 
     // Decision Branch A (Exit 0 -> Green Success)
+    // Connecting line stops at left edge of EXIT 0 badge (x: 868)
     shapesGroup.appendChild(
-      rc.line(855, 277, 945, 277, {
+      rc.line(855, 277, 868, 277, {
         stroke: greenStroke,
-        strokeWidth: 2.4,
-        roughness: 1.4
+        strokeWidth: 2,
+        roughness: 1.2
       })
-    );
-    shapesGroup.appendChild(
-      rc.line(935, 270, 948, 277, { stroke: greenStroke, strokeWidth: 2.2, roughness: 1.2 })
-    );
-    shapesGroup.appendChild(
-      rc.line(935, 284, 948, 277, { stroke: greenStroke, strokeWidth: 2.2, roughness: 1.2 })
     );
 
-    // Green badge pill for EXIT 0
+    // Green badge pill for EXIT 0 (solid dark mask so no line cuts across it)
     shapesGroup.appendChild(
-      rc.rectangle(860, 244, 78, 24, {
+      rc.rectangle(868, 264, 70, 26, {
         stroke: greenStroke,
-        strokeWidth: 1.6,
-        roughness: 1.4,
-        fill: 'rgba(16, 185, 129, 0.2)',
+        strokeWidth: 1.8,
+        roughness: 1.2,
+        fill: '#0a0a0a',
         fillStyle: 'solid'
       })
+    );
+
+    // Outgoing line from right edge of EXIT 0 badge (x: 938) to Step 4 (x: 950)
+    shapesGroup.appendChild(
+      rc.line(938, 277, 948, 277, {
+        stroke: greenStroke,
+        strokeWidth: 2,
+        roughness: 1.2
+      })
+    );
+    shapesGroup.appendChild(
+      rc.line(940, 271, 948, 277, { stroke: greenStroke, strokeWidth: 2, roughness: 1.2 })
+    );
+    shapesGroup.appendChild(
+      rc.line(940, 283, 948, 277, { stroke: greenStroke, strokeWidth: 2, roughness: 1.2 })
     );
 
     // Step 4: Y - Verified Commit (Green Box)
@@ -197,44 +206,63 @@
         stroke: greenStroke,
         strokeWidth: 2.2,
         roughness: 1.4,
-        bowing: 1.6,
-        fill: 'rgba(16, 185, 129, 0.1)',
-        fillStyle: 'hachure',
-        hachureGap: 8
+        bowing: 1.5,
+        fill: 'rgba(16, 185, 129, 0.06)',
+        fillStyle: 'solid'
       })
     );
 
     // Decision Branch B (Exit != 0 -> Loop back cleanly via R - Recognize)
-    // Path: from bottom of Tri-Gate (x: 757, y: 350) down to y: 415, back to x: 460, up to bottom of Step 2 (x: 460, y: 335)
+    // 1. Drop down from Tri-Gate bottom (x: 757, y: 350) down to y: 415
     shapesGroup.appendChild(
-      rc.linearPath([
-        [757, 350],
-        [757, 415],
-        [460, 415],
-        [460, 335]
-      ], {
+      rc.line(757, 350, 757, 415, {
         stroke: redStroke,
         strokeWidth: 2,
-        roughness: 1.8
+        roughness: 1.3
+      })
+    );
+    // 2. Travel left along y: 415, stopping at right edge of badge (x: 745) - NO LINE THROUGH BADGE!
+    shapesGroup.appendChild(
+      rc.line(757, 415, 745, 415, {
+        stroke: redStroke,
+        strokeWidth: 2,
+        roughness: 1.3
+      })
+    );
+
+    // 3. Prominent Red Badge Pill around Exit != 0 label (solid dark mask)
+    shapesGroup.appendChild(
+      rc.rectangle(475, 400, 270, 30, {
+        stroke: redStroke,
+        strokeWidth: 1.8,
+        roughness: 1.3,
+        fill: '#0a0a0a',
+        fillStyle: 'solid'
+      })
+    );
+
+    // 4. Resume from left edge of badge (x: 475) to corner (x: 460) along y: 415
+    shapesGroup.appendChild(
+      rc.line(475, 415, 460, 415, {
+        stroke: redStroke,
+        strokeWidth: 2,
+        roughness: 1.3
+      })
+    );
+    // 5. Travel up to bottom of Step 2 (x: 460, y: 335)
+    shapesGroup.appendChild(
+      rc.line(460, 415, 460, 335, {
+        stroke: redStroke,
+        strokeWidth: 2,
+        roughness: 1.3
       })
     );
     // Arrowhead pointing back up to Step 2
     shapesGroup.appendChild(
-      rc.line(453, 345, 460, 333, { stroke: redStroke, strokeWidth: 2, roughness: 1.4 })
+      rc.line(453, 345, 460, 333, { stroke: redStroke, strokeWidth: 2, roughness: 1.3 })
     );
     shapesGroup.appendChild(
-      rc.line(467, 345, 460, 333, { stroke: redStroke, strokeWidth: 2, roughness: 1.4 })
-    );
-
-    // Prominent Red Badge Pill around Exit != 0 label
-    shapesGroup.appendChild(
-      rc.rectangle(480, 400, 260, 30, {
-        stroke: redStroke,
-        strokeWidth: 1.6,
-        roughness: 1.5,
-        fill: 'rgba(239, 68, 68, 0.2)',
-        fillStyle: 'solid'
-      })
+      rc.line(467, 345, 460, 333, { stroke: redStroke, strokeWidth: 2, roughness: 1.3 })
     );
   }
 
@@ -297,15 +325,19 @@
     <text x="757" y="255" text-anchor="middle" class="gate-item">1. Style Linting</text>
     <text x="757" y="275" text-anchor="middle" class="gate-item">2. Strict Types</text>
     <text x="757" y="295" text-anchor="middle" class="gate-item">3. Runtime Tests</text>
-    <text x="757" y="329" text-anchor="middle" class="gate-exit-highlight">EXIT 0 REQUIRED</text>
+    <rect x="675" y="312" width="165" height="28" rx="4" fill="#0a0a0a" />
+    <text x="757" y="331" text-anchor="middle" class="gate-exit-highlight">EXIT 0 REQUIRED</text>
 
     <!-- Success Output -->
     <text x="1037" y="258" text-anchor="middle" class="node-title green">Y · Verified Commit</text>
     <text x="1037" y="280" text-anchor="middle" class="node-sub bold">Exit 0 Unanimous</text>
     <text x="1037" y="302" text-anchor="middle" class="node-sub mono">git commit --verified</text>
 
-    <!-- Decision Arrow Labels -->
-    <text x="899" y="261" text-anchor="middle" class="branch-exit-pass">EXIT 0</text>
+    <!-- Decision Arrow Labels with Clean Solid Backdrops -->
+    <rect x="868" y="264" width="70" height="26" rx="4" fill="#0a0a0a" />
+    <text x="903" y="282" text-anchor="middle" class="branch-exit-pass">EXIT 0</text>
+
+    <rect x="475" y="400" width="270" height="30" rx="4" fill="#0a0a0a" />
     <text x="610" y="420" text-anchor="middle" class="branch-exit-fail">R · EXIT != 0 : Triage Disk & Retry</text>
   </svg>
 </div>
