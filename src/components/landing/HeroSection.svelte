@@ -13,6 +13,66 @@
       }, 2000);
     }
   }
+
+  // Official AI coding agents supported by skills.sh (sample.png)
+  const agents = [
+    {
+      name: 'Cursor',
+      svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="7 17 17 7"/><polyline points="10 7 17 7 17 14"/><polyline points="4 14 10 8"/><polyline points="4 20 14 10"/></svg>`
+    },
+    {
+      name: 'Claude Code',
+      svg: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.5 3 4 8 4 14v7h4.2v-6.5c0-3.2 1.6-4.8 3.8-4.8s3.8 1.6 3.8 4.8V21H20v-7c0-6-2.5-11-8-11z"/></svg>`
+    },
+    {
+      name: 'Gemini CLI / Antigravity',
+      svg: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C12 7.523 7.523 12 2 12C7.523 12 12 16.477 12 22C12 16.477 16.477 12 22 12C16.477 12 12 7.523 12 2Z"/></svg>`
+    },
+    {
+      name: 'Cline',
+      svg: `<svg viewBox="0 0 24 24" fill="currentColor"><rect x="4" y="6" width="16" height="13" rx="4"/><circle cx="8.5" cy="12.5" r="1.5" fill="#0a0a0a"/><circle cx="15.5" cy="12.5" r="1.5" fill="#0a0a0a"/><path d="M12 2v4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><circle cx="12" cy="2" r="1.2" fill="currentColor"/></svg>`
+    },
+    {
+      name: 'Droid (Factory)',
+      svg: `<svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="13" r="6"/><circle cx="9.5" cy="12.5" r="1.2" fill="#0a0a0a"/><circle cx="14.5" cy="12.5" r="1.2" fill="#0a0a0a"/><circle cx="5" cy="13" r="1.5"/><circle cx="19" cy="13" r="1.5"/><line x1="12" y1="3" x2="12" y2="7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="2.5" r="1.2"/></svg>`
+    },
+    {
+      name: 'OpenAI Codex',
+      svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 2a4 4 0 0 1 4 4v2"/><path d="M19.07 4.93a4 4 0 0 1 0 5.66l-1.41 1.41"/><path d="M22 12a4 4 0 0 1-4 4h-2"/><path d="M19.07 19.07a4 4 0 0 1-5.66 0l-1.41-1.41"/><path d="M12 22a4 4 0 0 1-4-4v-2"/><path d="M4.93 19.07a4 4 0 0 1 0-5.66l1.41-1.41"/><path d="M2 12a4 4 0 0 1 4-4h2"/><path d="M4.93 4.93a4 4 0 0 1 5.66 0l1.41 1.41"/></svg>`
+    },
+    {
+      name: 'Windsurf',
+      svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 17c3.5-3 7-5 10.5-2s7 1 9.5-2"/><path d="M2 11c3.5-3 7-5 10.5-2s7 1 9.5-2"/><path d="M12 2l7 7"/></svg>`
+    },
+    {
+      name: 'Aider',
+      svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="8.5" cy="16" r="1.2" fill="currentColor"/><circle cx="15.5" cy="16" r="1.2" fill="currentColor"/><path d="M12 2v5M8 7h8"/></svg>`
+    },
+    {
+      name: 'Roo Code',
+      svg: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 5l-2.5 3h-2l-1-2-2 1v2.5H8.5a4.5 4.5 0 0 0-4.5 4.5v5h3v-3.5h2v3.5h7v-3a3 3 0 0 0 3-3V7.5L20 6l-1-1z"/><circle cx="14" cy="9.5" r="1.2" fill="#0a0a0a"/></svg>`
+    },
+    {
+      name: 'GitHub Copilot',
+      svg: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.53 1.03 1.53 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>`
+    },
+    {
+      name: 'Continue',
+      svg: `<svg viewBox="0 0 24 24" fill="currentColor"><polygon points="4 5 13 12 4 19 4 5"/><polygon points="12 5 21 12 12 19 12 5"/></svg>`
+    },
+    {
+      name: 'Devin',
+      svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>`
+    },
+    {
+      name: 'Warp',
+      svg: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 4h7.5l4.5 7-4.5 7H4l4.5-7L4 4zm8 0h8l-4.5 7 4.5 7h-8l4.5-7L12 4z"/></svg>`
+    },
+    {
+      name: 'Zed',
+      svg: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16L4 18h16"/></svg>`
+    }
+  ];
 </script>
 
 <section class="hero-section">
@@ -73,159 +133,11 @@
         <span class="launch-label">AVAILABLE FOR THESE AGENTS</span>
         <div class="agents-slideshow-mask">
           <div class="agents-slideshow-track">
-            <!-- Set 1 of Real AI Coding Agents -->
-            <!-- 1. Cursor IDE -->
-            <div class="agent-item" title="Cursor IDE">
-              <svg class="agent-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="7 17 17 7"/>
-                <polyline points="10 7 17 7 17 14"/>
-                <polyline points="4 14 10 8"/>
-                <polyline points="4 20 14 10"/>
-              </svg>
-            </div>
-
-            <!-- 2. Google Antigravity & Gemini CLI -->
-            <div class="agent-item" title="Google Antigravity / Gemini">
-              <svg class="agent-svg" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2C12 7.523 7.523 12 2 12C7.523 12 12 16.477 12 22C12 16.477 16.477 12 22 12C16.477 12 12 7.523 12 2Z"/>
-              </svg>
-            </div>
-
-            <!-- 3. Cline Autonomous Agent -->
-            <div class="agent-item" title="Cline Coding Agent">
-              <svg class="agent-svg" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2a1 1 0 0 1 1 1v2.07A8 8 0 0 1 20 13v3a3 3 0 0 1-3 3h-1v1a1 1 0 0 1-2 0v-1h-4v1a1 1 0 0 1-2 0v-1H7a3 3 0 0 1-3-3v-3a8 8 0 0 1 7-7.93V3a1 1 0 0 1 1-1zm-4 9a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
-              </svg>
-            </div>
-
-            <!-- 4. Anthropic Claude Code -->
-            <div class="agent-item" title="Anthropic Claude Code">
-              <svg class="agent-svg" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 3C7 3 4 8 4 14v7h4v-6c0-3 2-5 4-5s4 2 4 5v6h4v-7c0-6-3-11-8-11z"/>
-              </svg>
-            </div>
-
-            <!-- 5. Windsurf AI Editor -->
-            <div class="agent-item" title="Windsurf (Codeium)">
-              <svg class="agent-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M3 16c3-3 6.5-4.5 10-1.5 3.5 3 6.5 1.5 8 0"/>
-                <path d="M3 10c3-3 6.5-4.5 10-1.5 3.5 3 6.5 1.5 8 0"/>
-                <path d="M13 3l6 6"/>
-              </svg>
-            </div>
-
-            <!-- 6. Aider Pair Programmer -->
-            <div class="agent-item" title="Aider">
-              <svg class="agent-svg" viewBox="0 0 24 24" fill="currentColor">
-                <circle cx="12" cy="13" r="6"/>
-                <circle cx="9.5" cy="12.5" r="1.3" fill="#000"/>
-                <circle cx="14.5" cy="12.5" r="1.3" fill="#000"/>
-                <circle cx="5" cy="13" r="1.5"/>
-                <circle cx="19" cy="13" r="1.5"/>
-                <line x1="12" y1="3" x2="12" y2="7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                <circle cx="12" cy="2.5" r="1.2"/>
-              </svg>
-            </div>
-
-            <!-- 7. Roo Code Autonomous Agent -->
-            <div class="agent-item" title="Roo Code">
-              <svg class="agent-svg" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M18 4l-3 4h-2l-1-2-2 1v3H8a4 4 0 0 0-4 4v5h3v-4h2v4h6v-3a3 3 0 0 0 3-3v-6l2-2-2-1z"/>
-                <circle cx="14" cy="9" r="1" fill="#000"/>
-              </svg>
-            </div>
-
-            <!-- 8. OpenAI Codex / Operator -->
-            <div class="agent-item" title="OpenAI Codex / Agents">
-              <svg class="agent-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <circle cx="12" cy="12" r="3"/>
-                <path d="M12 2a4 4 0 0 1 4 4v2"/>
-                <path d="M19.07 4.93a4 4 0 0 1 0 5.66l-1.41 1.41"/>
-                <path d="M22 12a4 4 0 0 1-4 4h-2"/>
-                <path d="M19.07 19.07a4 4 0 0 1-5.66 0l-1.41-1.41"/>
-                <path d="M12 22a4 4 0 0 1-4-4v-2"/>
-                <path d="M4.93 19.07a4 4 0 0 1 0-5.66l1.41-1.41"/>
-                <path d="M2 12a4 4 0 0 1 4-4h2"/>
-                <path d="M4.93 4.93a4 4 0 0 1 5.66 0l1.41 1.41"/>
-              </svg>
-            </div>
-
-            <!-- Set 2 (Duplicate for Seamless Infinite Marquee Loop) -->
-            <!-- 1. Cursor IDE -->
-            <div class="agent-item" title="Cursor IDE" aria-hidden="true">
-              <svg class="agent-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="7 17 17 7"/>
-                <polyline points="10 7 17 7 17 14"/>
-                <polyline points="4 14 10 8"/>
-                <polyline points="4 20 14 10"/>
-              </svg>
-            </div>
-
-            <!-- 2. Google Antigravity & Gemini CLI -->
-            <div class="agent-item" title="Google Antigravity / Gemini" aria-hidden="true">
-              <svg class="agent-svg" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2C12 7.523 7.523 12 2 12C7.523 12 12 16.477 12 22C12 16.477 16.477 12 22 12C16.477 12 12 7.523 12 2Z"/>
-              </svg>
-            </div>
-
-            <!-- 3. Cline Autonomous Agent -->
-            <div class="agent-item" title="Cline Coding Agent" aria-hidden="true">
-              <svg class="agent-svg" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2a1 1 0 0 1 1 1v2.07A8 8 0 0 1 20 13v3a3 3 0 0 1-3 3h-1v1a1 1 0 0 1-2 0v-1h-4v1a1 1 0 0 1-2 0v-1H7a3 3 0 0 1-3-3v-3a8 8 0 0 1 7-7.93V3a1 1 0 0 1 1-1zm-4 9a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
-              </svg>
-            </div>
-
-            <!-- 4. Anthropic Claude Code -->
-            <div class="agent-item" title="Anthropic Claude Code" aria-hidden="true">
-              <svg class="agent-svg" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 3C7 3 4 8 4 14v7h4v-6c0-3 2-5 4-5s4 2 4 5v6h4v-7c0-6-3-11-8-11z"/>
-              </svg>
-            </div>
-
-            <!-- 5. Windsurf AI Editor -->
-            <div class="agent-item" title="Windsurf (Codeium)" aria-hidden="true">
-              <svg class="agent-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M3 16c3-3 6.5-4.5 10-1.5 3.5 3 6.5 1.5 8 0"/>
-                <path d="M3 10c3-3 6.5-4.5 10-1.5 3.5 3 6.5 1.5 8 0"/>
-                <path d="M13 3l6 6"/>
-              </svg>
-            </div>
-
-            <!-- 6. Aider Pair Programmer -->
-            <div class="agent-item" title="Aider" aria-hidden="true">
-              <svg class="agent-svg" viewBox="0 0 24 24" fill="currentColor">
-                <circle cx="12" cy="13" r="6"/>
-                <circle cx="9.5" cy="12.5" r="1.3" fill="#000"/>
-                <circle cx="14.5" cy="12.5" r="1.3" fill="#000"/>
-                <circle cx="5" cy="13" r="1.5"/>
-                <circle cx="19" cy="13" r="1.5"/>
-                <line x1="12" y1="3" x2="12" y2="7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                <circle cx="12" cy="2.5" r="1.2"/>
-              </svg>
-            </div>
-
-            <!-- 7. Roo Code Autonomous Agent -->
-            <div class="agent-item" title="Roo Code" aria-hidden="true">
-              <svg class="agent-svg" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M18 4l-3 4h-2l-1-2-2 1v3H8a4 4 0 0 0-4 4v5h3v-4h2v4h6v-3a3 3 0 0 0 3-3v-6l2-2-2-1z"/>
-                <circle cx="14" cy="9" r="1" fill="#000"/>
-              </svg>
-            </div>
-
-            <!-- 8. OpenAI Codex / Operator -->
-            <div class="agent-item" title="OpenAI Codex / Agents" aria-hidden="true">
-              <svg class="agent-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <circle cx="12" cy="12" r="3"/>
-                <path d="M12 2a4 4 0 0 1 4 4v2"/>
-                <path d="M19.07 4.93a4 4 0 0 1 0 5.66l-1.41 1.41"/>
-                <path d="M22 12a4 4 0 0 1-4 4h-2"/>
-                <path d="M19.07 19.07a4 4 0 0 1-5.66 0l-1.41-1.41"/>
-                <path d="M12 22a4 4 0 0 1-4-4v-2"/>
-                <path d="M4.93 19.07a4 4 0 0 1 0-5.66l1.41-1.41"/>
-                <path d="M2 12a4 4 0 0 1 4-4h2"/>
-                <path d="M4.93 4.93a4 4 0 0 1 5.66 0l1.41 1.41"/>
-              </svg>
-            </div>
+            {#each [...agents, ...agents] as agent}
+              <div class="agent-item" title={agent.name}>
+                {@html agent.svg}
+              </div>
+            {/each}
           </div>
         </div>
       </div>
@@ -496,7 +408,7 @@
     transform: scale(1.2);
   }
 
-  .agent-svg {
+  .agent-item :global(svg) {
     width: 22px;
     height: 22px;
   }
