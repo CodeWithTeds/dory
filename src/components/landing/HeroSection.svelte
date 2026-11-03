@@ -68,75 +68,164 @@
         </div>
       </div>
 
-      <!-- Right Column: AVAILABLE FOR THESE AGENTS from sample.png -->
-      <div class="launch-col">
+      <!-- Right Column: AVAILABLE FOR THESE AGENTS with Smooth Infinite Slideshow -->
+      <div class="launch-col agents-col">
         <span class="launch-label">AVAILABLE FOR THESE AGENTS</span>
-        <div class="agents-logo-strip">
-          <!-- Next.js / Vercel style N -->
-          <div class="agent-icon-item" title="Next.js / Agent Skills">
-            <svg class="agent-svg" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M11.109 16.444l7.891-11.444h2l-8.891 13h-2l-7.109-10h2.2l5.909 8.444z"/>
-              <rect x="2" y="5" width="2.2" height="14" fill="currentColor"/>
-            </svg>
-          </div>
+        <div class="agents-slideshow-mask">
+          <div class="agents-slideshow-track">
+            <!-- Set 1 of Real AI Coding Agents -->
+            <!-- 1. Cursor IDE -->
+            <div class="agent-item" title="Cursor IDE">
+              <svg class="agent-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="7 17 17 7"/>
+                <polyline points="10 7 17 7 17 14"/>
+                <polyline points="4 14 10 8"/>
+                <polyline points="4 20 14 10"/>
+              </svg>
+            </div>
 
-          <!-- Google Gemini / Antigravity -->
-          <div class="agent-icon-item" title="Google Antigravity & Gemini">
-            <svg class="agent-svg" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2C12 7.523 7.523 12 2 12C7.523 12 12 16.477 12 22C12 16.477 16.477 12 22 12C16.477 12 12 7.523 12 2Z"/>
-            </svg>
-          </div>
+            <!-- 2. Google Antigravity & Gemini CLI -->
+            <div class="agent-item" title="Google Antigravity / Gemini">
+              <svg class="agent-svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C12 7.523 7.523 12 2 12C7.523 12 12 16.477 12 22C12 16.477 16.477 12 22 12C16.477 12 12 7.523 12 2Z"/>
+              </svg>
+            </div>
 
-          <!-- Roo Code / Cline Robot -->
-          <div class="agent-icon-item" title="Cline / Roo Code">
-            <svg class="agent-svg" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2a1 1 0 0 1 1 1v2.07A8 8 0 0 1 20 13v3a3 3 0 0 1-3 3h-1v1a1 1 0 0 1-2 0v-1h-4v1a1 1 0 0 1-2 0v-1H7a3 3 0 0 1-3-3v-3a8 8 0 0 1 7-7.93V3a1 1 0 0 1 1-1zm-4 9a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
-            </svg>
-          </div>
+            <!-- 3. Cline Autonomous Agent -->
+            <div class="agent-item" title="Cline Coding Agent">
+              <svg class="agent-svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2a1 1 0 0 1 1 1v2.07A8 8 0 0 1 20 13v3a3 3 0 0 1-3 3h-1v1a1 1 0 0 1-2 0v-1h-4v1a1 1 0 0 1-2 0v-1H7a3 3 0 0 1-3-3v-3a8 8 0 0 1 7-7.93V3a1 1 0 0 1 1-1zm-4 9a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
+              </svg>
+            </div>
 
-          <!-- Cursor Chevron Bundle -->
-          <div class="agent-icon-item" title="Cursor IDE">
-            <svg class="agent-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="7 17 17 7"/>
-              <polyline points="10 7 17 7 17 14"/>
-              <polyline points="4 14 10 8"/>
-              <polyline points="4 20 14 10"/>
-            </svg>
-          </div>
+            <!-- 4. Anthropic Claude Code -->
+            <div class="agent-item" title="Anthropic Claude Code">
+              <svg class="agent-svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 3C7 3 4 8 4 14v7h4v-6c0-3 2-5 4-5s4 2 4 5v6h4v-7c0-6-3-11-8-11z"/>
+              </svg>
+            </div>
 
-          <!-- Anthropic Claude Arch -->
-          <div class="agent-icon-item" title="Anthropic Claude Code">
-            <svg class="agent-svg" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 3C7 3 4 8 4 14v7h4v-6c0-3 2-5 4-5s4 2 4 5v6h4v-7c0-6-3-11-8-11z"/>
-            </svg>
-          </div>
+            <!-- 5. Windsurf AI Editor -->
+            <div class="agent-item" title="Windsurf (Codeium)">
+              <svg class="agent-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 16c3-3 6.5-4.5 10-1.5 3.5 3 6.5 1.5 8 0"/>
+                <path d="M3 10c3-3 6.5-4.5 10-1.5 3.5 3 6.5 1.5 8 0"/>
+                <path d="M13 3l6 6"/>
+              </svg>
+            </div>
 
-          <!-- Aider Baby Robot -->
-          <div class="agent-icon-item" title="Aider">
-            <svg class="agent-svg" viewBox="0 0 24 24" fill="currentColor">
-              <circle cx="12" cy="13" r="6"/>
-              <circle cx="9.5" cy="12.5" r="1.2" fill="#000"/>
-              <circle cx="14.5" cy="12.5" r="1.2" fill="#000"/>
-              <circle cx="5" cy="13" r="1.5"/>
-              <circle cx="19" cy="13" r="1.5"/>
-              <line x1="12" y1="3" x2="12" y2="7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              <circle cx="12" cy="2.5" r="1.2"/>
-            </svg>
-          </div>
+            <!-- 6. Aider Pair Programmer -->
+            <div class="agent-item" title="Aider">
+              <svg class="agent-svg" viewBox="0 0 24 24" fill="currentColor">
+                <circle cx="12" cy="13" r="6"/>
+                <circle cx="9.5" cy="12.5" r="1.3" fill="#000"/>
+                <circle cx="14.5" cy="12.5" r="1.3" fill="#000"/>
+                <circle cx="5" cy="13" r="1.5"/>
+                <circle cx="19" cy="13" r="1.5"/>
+                <line x1="12" y1="3" x2="12" y2="7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="12" cy="2.5" r="1.2"/>
+              </svg>
+            </div>
 
-          <!-- OpenAI Bloom / Sunflower -->
-          <div class="agent-icon-item" title="OpenAI / Agents">
-            <svg class="agent-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-              <circle cx="12" cy="12" r="3"/>
-              <path d="M12 2a4 4 0 0 1 4 4v2"/>
-              <path d="M19.07 4.93a4 4 0 0 1 0 5.66l-1.41 1.41"/>
-              <path d="M22 12a4 4 0 0 1-4 4h-2"/>
-              <path d="M19.07 19.07a4 4 0 0 1-5.66 0l-1.41-1.41"/>
-              <path d="M12 22a4 4 0 0 1-4-4v-2"/>
-              <path d="M4.93 19.07a4 4 0 0 1 0-5.66l1.41-1.41"/>
-              <path d="M2 12a4 4 0 0 1 4-4h2"/>
-              <path d="M4.93 4.93a4 4 0 0 1 5.66 0l1.41 1.41"/>
-            </svg>
+            <!-- 7. Roo Code Autonomous Agent -->
+            <div class="agent-item" title="Roo Code">
+              <svg class="agent-svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18 4l-3 4h-2l-1-2-2 1v3H8a4 4 0 0 0-4 4v5h3v-4h2v4h6v-3a3 3 0 0 0 3-3v-6l2-2-2-1z"/>
+                <circle cx="14" cy="9" r="1" fill="#000"/>
+              </svg>
+            </div>
+
+            <!-- 8. OpenAI Codex / Operator -->
+            <div class="agent-item" title="OpenAI Codex / Agents">
+              <svg class="agent-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <circle cx="12" cy="12" r="3"/>
+                <path d="M12 2a4 4 0 0 1 4 4v2"/>
+                <path d="M19.07 4.93a4 4 0 0 1 0 5.66l-1.41 1.41"/>
+                <path d="M22 12a4 4 0 0 1-4 4h-2"/>
+                <path d="M19.07 19.07a4 4 0 0 1-5.66 0l-1.41-1.41"/>
+                <path d="M12 22a4 4 0 0 1-4-4v-2"/>
+                <path d="M4.93 19.07a4 4 0 0 1 0-5.66l1.41-1.41"/>
+                <path d="M2 12a4 4 0 0 1 4-4h2"/>
+                <path d="M4.93 4.93a4 4 0 0 1 5.66 0l1.41 1.41"/>
+              </svg>
+            </div>
+
+            <!-- Set 2 (Duplicate for Seamless Infinite Marquee Loop) -->
+            <!-- 1. Cursor IDE -->
+            <div class="agent-item" title="Cursor IDE" aria-hidden="true">
+              <svg class="agent-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="7 17 17 7"/>
+                <polyline points="10 7 17 7 17 14"/>
+                <polyline points="4 14 10 8"/>
+                <polyline points="4 20 14 10"/>
+              </svg>
+            </div>
+
+            <!-- 2. Google Antigravity & Gemini CLI -->
+            <div class="agent-item" title="Google Antigravity / Gemini" aria-hidden="true">
+              <svg class="agent-svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C12 7.523 7.523 12 2 12C7.523 12 12 16.477 12 22C12 16.477 16.477 12 22 12C16.477 12 12 7.523 12 2Z"/>
+              </svg>
+            </div>
+
+            <!-- 3. Cline Autonomous Agent -->
+            <div class="agent-item" title="Cline Coding Agent" aria-hidden="true">
+              <svg class="agent-svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2a1 1 0 0 1 1 1v2.07A8 8 0 0 1 20 13v3a3 3 0 0 1-3 3h-1v1a1 1 0 0 1-2 0v-1h-4v1a1 1 0 0 1-2 0v-1H7a3 3 0 0 1-3-3v-3a8 8 0 0 1 7-7.93V3a1 1 0 0 1 1-1zm-4 9a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
+              </svg>
+            </div>
+
+            <!-- 4. Anthropic Claude Code -->
+            <div class="agent-item" title="Anthropic Claude Code" aria-hidden="true">
+              <svg class="agent-svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 3C7 3 4 8 4 14v7h4v-6c0-3 2-5 4-5s4 2 4 5v6h4v-7c0-6-3-11-8-11z"/>
+              </svg>
+            </div>
+
+            <!-- 5. Windsurf AI Editor -->
+            <div class="agent-item" title="Windsurf (Codeium)" aria-hidden="true">
+              <svg class="agent-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 16c3-3 6.5-4.5 10-1.5 3.5 3 6.5 1.5 8 0"/>
+                <path d="M3 10c3-3 6.5-4.5 10-1.5 3.5 3 6.5 1.5 8 0"/>
+                <path d="M13 3l6 6"/>
+              </svg>
+            </div>
+
+            <!-- 6. Aider Pair Programmer -->
+            <div class="agent-item" title="Aider" aria-hidden="true">
+              <svg class="agent-svg" viewBox="0 0 24 24" fill="currentColor">
+                <circle cx="12" cy="13" r="6"/>
+                <circle cx="9.5" cy="12.5" r="1.3" fill="#000"/>
+                <circle cx="14.5" cy="12.5" r="1.3" fill="#000"/>
+                <circle cx="5" cy="13" r="1.5"/>
+                <circle cx="19" cy="13" r="1.5"/>
+                <line x1="12" y1="3" x2="12" y2="7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="12" cy="2.5" r="1.2"/>
+              </svg>
+            </div>
+
+            <!-- 7. Roo Code Autonomous Agent -->
+            <div class="agent-item" title="Roo Code" aria-hidden="true">
+              <svg class="agent-svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18 4l-3 4h-2l-1-2-2 1v3H8a4 4 0 0 0-4 4v5h3v-4h2v4h6v-3a3 3 0 0 0 3-3v-6l2-2-2-1z"/>
+                <circle cx="14" cy="9" r="1" fill="#000"/>
+              </svg>
+            </div>
+
+            <!-- 8. OpenAI Codex / Operator -->
+            <div class="agent-item" title="OpenAI Codex / Agents" aria-hidden="true">
+              <svg class="agent-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <circle cx="12" cy="12" r="3"/>
+                <path d="M12 2a4 4 0 0 1 4 4v2"/>
+                <path d="M19.07 4.93a4 4 0 0 1 0 5.66l-1.41 1.41"/>
+                <path d="M22 12a4 4 0 0 1-4 4h-2"/>
+                <path d="M19.07 19.07a4 4 0 0 1-5.66 0l-1.41-1.41"/>
+                <path d="M12 22a4 4 0 0 1-4-4v-2"/>
+                <path d="M4.93 19.07a4 4 0 0 1 0-5.66l1.41-1.41"/>
+                <path d="M2 12a4 4 0 0 1 4-4h2"/>
+                <path d="M4.93 4.93a4 4 0 0 1 5.66 0l1.41 1.41"/>
+              </svg>
+            </div>
           </div>
         </div>
       </div>
@@ -350,17 +439,47 @@
     color: #10b981;
   }
 
-  /* Agents Logo Strip from sample.png */
-  .agents-logo-strip {
-    display: flex;
-    align-items: center;
-    gap: 22px;
-    min-height: 48px;
-    box-sizing: border-box;
-    padding: 0 4px;
+  /* Agents Column & Continuous Slideshow Marquee */
+  .agents-col {
+    max-width: 380px;
+    width: 100%;
+    overflow: hidden;
   }
 
-  .agent-icon-item {
+  .agents-slideshow-mask {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+  }
+
+  .agents-slideshow-track {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+    width: max-content;
+    animation: agentScroll 22s linear infinite;
+    will-change: transform;
+  }
+
+  .agents-slideshow-mask:hover .agents-slideshow-track {
+    animation-play-state: paused;
+  }
+
+  @keyframes agentScroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .agent-item {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -368,12 +487,13 @@
     height: 28px;
     color: #88888e;
     transition: all var(--transition-fast);
-    cursor: default;
+    cursor: pointer;
+    flex-shrink: 0;
   }
 
-  .agent-icon-item:hover {
+  .agent-item:hover {
     color: #ffffff;
-    transform: translateY(-2px);
+    transform: scale(1.2);
   }
 
   .agent-svg {
@@ -393,15 +513,13 @@
       width: 100%;
     }
 
-    .terminal-input-box {
-      width: 100%;
+    .agents-col {
       max-width: 100%;
     }
 
-    .agents-logo-strip {
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 18px;
+    .terminal-input-box {
+      width: 100%;
+      max-width: 100%;
     }
   }
 </style>
