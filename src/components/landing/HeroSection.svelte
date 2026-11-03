@@ -1,8 +1,25 @@
 <script lang="ts">
+  import { onMount } from 'svelte';
   import { copyToClipboard } from '../../services/clipboard';
+  import localTraffic from '../../../traffic/summary.json';
 
   let copied = false;
+  let totalInstalls: number = localTraffic.total_clones || 0;
   const commandText = 'npx skills add https://github.com/CodeWithTeds/dory --skill dory';
+
+  onMount(() => {
+    // Attempt to fetch fresh live metrics from GitHub raw CDN
+    fetch('https://raw.githubusercontent.com/CodeWithTeds/dory/main/traffic/summary.json', { cache: 'no-store' })
+      .then((res) => res.json())
+      .then((data) => {
+        if (typeof data.total_clones === 'number') {
+          totalInstalls = data.total_clones;
+        }
+      })
+      .catch(() => {
+        // Fallback to bundled localTraffic
+      });
+  });
 
   async function handleCopy() {
     const success = await copyToClipboard(commandText, 'Copied: ' + commandText);
@@ -100,7 +117,14 @@
     <div class="launch-strip-container">
       <!-- Left Column: TRY IT NOW -->
       <div class="launch-col">
-        <span class="launch-label">TRY IT NOW</span>
+        <div class="launch-header-row">
+          <span class="launch-label">TRY IT NOW</span>
+          <span class="installs-badge">
+            <span class="pulse-dot"></span>
+            <span class="installs-count">{totalInstalls}</span>
+            <span class="installs-text">installs</span>
+          </span>
+        </div>
         <div 
           class="terminal-input-box" 
           on:click={handleCopy} 
@@ -261,6 +285,54 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 12px;
+  }
+
+  .launch-header-row {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .installs-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-family-mono);
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    color: var(--text-secondary);
+    user-select: none;
+  }
+
+  .pulse-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #10b981;
+    box-shadow: 0 0 8px #10b981;
+    animation: pulseGlow 2.5s infinite ease-in-out;
+  }
+
+  @keyframes pulseGlow {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.35;
+      transform: scale(0.85);
+    }
+  }
+
+  .installs-count {
+    color: var(--text-primary);
+    font-weight: 700;
+  }
+
+  .installs-text {
+    color: var(--text-muted);
   }
 
   .launch-label {
