@@ -283,69 +283,74 @@
     <span class="diagram-caption">Chat Trap vs. Closed-Loop Tri-Gate</span>
   </div>
 
-  <svg 
-    bind:this={svgElement} 
-    viewBox="0 0 1140 450" 
-    class="rough-svg" 
-    preserveAspectRatio="xMidYMid meet"
-    role="img"
-    aria-label="Hand-drawn diagram of DORY Tri-Gate loop versus Chat Trap"
-  >
-    <!-- Group where roughjs appends hand-drawn SVG paths -->
-    <g bind:this={shapesGroup} class="rough-shapes"></g>
+  <div class="rough-svg-scroll-container">
+    <svg 
+      bind:this={svgElement} 
+      viewBox="0 0 1140 450" 
+      class="rough-svg" 
+      preserveAspectRatio="xMidYMid meet"
+      role="img"
+      aria-label="Hand-drawn diagram of DORY Tri-Gate loop versus Chat Trap"
+    >
+      <!-- Group where roughjs appends hand-drawn SVG paths -->
+      <g bind:this={shapesGroup} class="rough-shapes"></g>
 
-    <!-- Crisp Typography Overlay for readability -->
-    <!-- Top Lane Labels -->
-    <text x="40" y="38" class="lane-title bad">✕ TRADITIONAL CONVERSATIONAL AGENT (CHAT TRAP)</text>
-    
-    <text x="140" y="80" text-anchor="middle" class="node-title">Vague Chat Prompt</text>
-    <text x="140" y="98" text-anchor="middle" class="node-sub">Ambiguous task contract</text>
+      <!-- Crisp Typography Overlay for readability -->
+      <!-- Top Lane Labels -->
+      <text x="40" y="38" class="lane-title bad">✕ TRADITIONAL CONVERSATIONAL AGENT (CHAT TRAP)</text>
+      
+      <text x="140" y="80" text-anchor="middle" class="node-title">Vague Chat Prompt</text>
+      <text x="140" y="98" text-anchor="middle" class="node-sub">Ambiguous task contract</text>
 
-    <text x="460" y="80" text-anchor="middle" class="node-title">Raw Error Trace Dump</text>
-    <text x="460" y="98" text-anchor="middle" class="node-sub">5,000+ token conversational dump</text>
+      <text x="460" y="80" text-anchor="middle" class="node-title">Raw Error Trace Dump</text>
+      <text x="460" y="98" text-anchor="middle" class="node-sub">5,000+ token conversational dump</text>
 
-    <text x="815" y="78" text-anchor="middle" class="node-title warn">Context Collapse</text>
-    <text x="815" y="98" text-anchor="middle" class="node-sub">Agent apologizes & guesses fixes (80k tokens)</text>
+      <text x="815" y="78" text-anchor="middle" class="node-title warn">Context Collapse</text>
+      <text x="815" y="98" text-anchor="middle" class="node-sub">Agent apologizes & guesses fixes (80k tokens)</text>
 
-    <!-- Bottom Lane Labels -->
-    <text x="40" y="200" class="lane-title good">✓ DORY DETERMINISTIC CLOSED-LOOP (EXIT CODE 0)</text>
+      <!-- Bottom Lane Labels -->
+      <text x="40" y="200" class="lane-title good">✓ DORY DETERMINISTIC CLOSED-LOOP (EXIT CODE 0)</text>
 
-    <!-- Step 1 -->
-    <text x="145" y="260" text-anchor="middle" class="node-title accent">D · Task Contract</text>
-    <text x="145" y="280" text-anchor="middle" class="node-sub">Pre-flight failing assertion</text>
-    <text x="145" y="298" text-anchor="middle" class="node-sub mono">task-spec.json</text>
+      <!-- Step 1 -->
+      <text x="145" y="260" text-anchor="middle" class="node-title accent">D · Task Contract</text>
+      <text x="145" y="280" text-anchor="middle" class="node-sub">Pre-flight failing assertion</text>
+      <text x="145" y="298" text-anchor="middle" class="node-sub mono">task-spec.json</text>
 
-    <!-- Step 2 -->
-    <text x="460" y="260" text-anchor="middle" class="node-title">O · Bounded Mutation</text>
-    <text x="460" y="280" text-anchor="middle" class="node-sub">Zero token bleed</text>
-    <text x="460" y="298" text-anchor="middle" class="node-sub mono">Isolated workspace</text>
+      <!-- Step 2 -->
+      <text x="460" y="260" text-anchor="middle" class="node-title">O · Bounded Mutation</text>
+      <text x="460" y="280" text-anchor="middle" class="node-sub">Zero token bleed</text>
+      <text x="460" y="298" text-anchor="middle" class="node-sub mono">Isolated workspace</text>
 
-    <!-- Step 3: Tri-Gate -->
-    <text x="757" y="232" text-anchor="middle" class="node-title amber">The Tri-Gate</text>
-    <text x="757" y="255" text-anchor="middle" class="gate-item">1. Style Linting</text>
-    <text x="757" y="275" text-anchor="middle" class="gate-item">2. Strict Types</text>
-    <text x="757" y="295" text-anchor="middle" class="gate-item">3. Runtime Tests</text>
-    <rect x="675" y="312" width="165" height="28" rx="4" fill="#0a0a0a" />
-    <text x="757" y="331" text-anchor="middle" class="gate-exit-highlight">EXIT 0 REQUIRED</text>
+      <!-- Step 3: Tri-Gate -->
+      <text x="757" y="232" text-anchor="middle" class="node-title amber">The Tri-Gate</text>
+      <text x="757" y="255" text-anchor="middle" class="gate-item">1. Style Linting</text>
+      <text x="757" y="275" text-anchor="middle" class="gate-item">2. Strict Types</text>
+      <text x="757" y="295" text-anchor="middle" class="gate-item">3. Runtime Tests</text>
+      <rect x="675" y="312" width="165" height="28" rx="4" fill="#0a0a0a" />
+      <text x="757" y="331" text-anchor="middle" class="gate-exit-highlight">EXIT 0 REQUIRED</text>
 
-    <!-- Success Output -->
-    <text x="1037" y="258" text-anchor="middle" class="node-title green">Y · Verified Commit</text>
-    <text x="1037" y="280" text-anchor="middle" class="node-sub bold">Exit 0 Unanimous</text>
-    <text x="1037" y="302" text-anchor="middle" class="node-sub mono">git commit --verified</text>
+      <!-- Success Output -->
+      <text x="1037" y="258" text-anchor="middle" class="node-title green">Y · Verified Commit</text>
+      <text x="1037" y="280" text-anchor="middle" class="node-sub bold">Exit 0 Unanimous</text>
+      <text x="1037" y="302" text-anchor="middle" class="node-sub mono">git commit --verified</text>
 
-    <!-- Decision Arrow Labels with Clean Solid Backdrops -->
-    <rect x="868" y="264" width="70" height="26" rx="4" fill="#0a0a0a" />
-    <text x="903" y="282" text-anchor="middle" class="branch-exit-pass">EXIT 0</text>
+      <!-- Decision Arrow Labels with Clean Solid Backdrops -->
+      <rect x="868" y="264" width="70" height="26" rx="4" fill="#0a0a0a" />
+      <text x="903" y="282" text-anchor="middle" class="branch-exit-pass">EXIT 0</text>
 
-    <rect x="475" y="400" width="270" height="30" rx="4" fill="#0a0a0a" />
-    <text x="610" y="420" text-anchor="middle" class="branch-exit-fail">R · EXIT != 0 : Triage Disk & Retry</text>
-  </svg>
+      <rect x="475" y="400" width="270" height="30" rx="4" fill="#0a0a0a" />
+      <text x="610" y="420" text-anchor="middle" class="branch-exit-fail">R · EXIT != 0 : Triage Disk & Retry</text>
+    </svg>
+  </div>
 </div>
 
 <style>
   /* STRICTLY NO BORDER, NO BACKGROUND PER USER INSTRUCTION */
   .rough-diagram-wrapper {
     width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -360,7 +365,10 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 16px;
+    gap: 12px;
+    flex-wrap: wrap;
+    width: 100%;
+    box-sizing: border-box;
     font-family: var(--font-family-mono);
     font-size: 11px;
     letter-spacing: 1.2px;
@@ -375,11 +383,24 @@
     color: var(--text-muted);
   }
 
+  .rough-svg-scroll-container {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
+  }
+
   .rough-svg {
     width: 100%;
+    max-width: 100%;
     height: auto;
     overflow: visible;
     background: transparent;
+    display: block;
   }
 
   /* SVG Typography */
@@ -473,14 +494,19 @@
   @media (max-width: 768px) {
     .rough-svg {
       min-width: 720px;
+      max-width: none;
+      width: 720px;
     }
 
-    .rough-diagram-wrapper {
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
+    .rough-svg-scroll-container {
       padding-bottom: 12px;
-      scrollbar-width: thin;
-      scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .diagram-kicker-bar {
+      font-size: 10px;
+      gap: 6px;
     }
   }
 </style>

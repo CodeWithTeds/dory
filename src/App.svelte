@@ -30,11 +30,17 @@
     flex-direction: column;
     background-color: var(--bg-canvas);
     color: var(--text-primary);
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
   }
 
   .main-viewport {
     flex: 1;
     display: flex;
     flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
   }
 </style>

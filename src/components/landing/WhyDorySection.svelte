@@ -26,8 +26,8 @@
         });
       },
       {
-        threshold: 0.15,
-        rootMargin: '0px 0px -40px 0px'
+        threshold: 0.05,
+        rootMargin: '0px 0px -20px 0px'
       }
     );
 
@@ -144,11 +144,16 @@
     background-color: var(--bg-canvas);
     border: none;
     outline: none;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
   }
 
   .why-container {
     max-width: 1240px;
     width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     gap: 72px;
@@ -270,6 +275,10 @@
 
   /* Architecture Diagram: Animates when scrolled to this part */
   .diagram-anim-wrapper {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
     opacity: 0;
     transform: translateY(32px);
     transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.1s, transform 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.1s;
@@ -389,13 +398,20 @@
 
   @media (max-width: 1024px) {
     .doc-columns {
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 36px;
     }
 
     .loop-grid {
       grid-template-columns: repeat(2, 1fr);
       gap: 28px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .doc-columns {
+      grid-template-columns: 1fr;
+      gap: 32px;
     }
   }
 

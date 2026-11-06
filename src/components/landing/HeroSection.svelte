@@ -205,6 +205,8 @@
     padding: 70px 24px 60px;
     background-color: var(--bg-canvas);
     overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .ambient-glow {
@@ -214,6 +216,7 @@
     transform: translate(-50%, -50%);
     width: 720px;
     height: 420px;
+    max-width: 100vw;
     background: radial-gradient(circle, rgba(3, 51, 255, 0.22) 0%, rgba(3, 51, 255, 0.04) 55%, transparent 80%);
     filter: blur(85px);
     pointer-events: none;
@@ -224,6 +227,8 @@
     position: relative;
     z-index: 1;
     max-width: 1280px;
+    width: 100%;
+    box-sizing: border-box;
     margin: 0 auto;
     text-align: center;
     display: flex;
@@ -394,6 +399,7 @@
     max-width: 1100px;
     flex-wrap: wrap;
     text-align: left;
+    box-sizing: border-box;
   }
 
   .launch-col {
@@ -401,6 +407,8 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 12px;
+    min-width: 0;
+    box-sizing: border-box;
   }
 
   .launch-header-row {
@@ -476,6 +484,8 @@
     transition: all var(--transition-fast);
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
     max-width: 620px;
+    width: 100%;
+    min-width: 0;
     user-select: none;
   }
 
@@ -491,6 +501,8 @@
     gap: 10px;
     overflow-x: auto;
     scrollbar-width: none;
+    flex: 1;
+    min-width: 0;
   }
 
   .terminal-text-group::-webkit-scrollbar {
@@ -543,12 +555,14 @@
   .agents-col {
     max-width: 380px;
     width: 100%;
+    min-width: 0;
     overflow: hidden;
   }
 
   .agents-slideshow-mask {
     position: relative;
     width: 100%;
+    max-width: 100%;
     overflow: hidden;
     min-height: 48px;
     display: flex;
@@ -601,6 +615,32 @@
     height: 22px;
   }
 
+  @media (max-width: 1040px) {
+    .launch-strip-container {
+      margin-top: 48px;
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+      width: 100%;
+    }
+
+    .launch-col {
+      align-items: stretch;
+      width: 100%;
+      max-width: 580px;
+    }
+
+    .agents-col {
+      max-width: 580px;
+      width: 100%;
+    }
+
+    .terminal-input-box {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+
   @media (max-width: 860px) {
     .hero-section {
       padding: 50px 20px 50px;
@@ -618,30 +658,6 @@
       font-size: 15px;
       padding: 0 12px;
     }
-
-    .launch-strip-container {
-      margin-top: 40px;
-      flex-direction: column;
-      align-items: center;
-      gap: 28px;
-      width: 100%;
-    }
-
-    .launch-col {
-      align-items: stretch;
-      width: 100%;
-      max-width: 540px;
-    }
-
-    .agents-col {
-      max-width: 540px;
-      width: 100%;
-    }
-
-    .terminal-input-box {
-      width: 100%;
-      max-width: 100%;
-    }
   }
 
   @media (max-width: 480px) {
@@ -650,8 +666,8 @@
     }
 
     .hero-title {
-      font-size: clamp(28px, 8.5vw, 38px);
-      line-height: 1.1;
+      font-size: clamp(24px, 7.5vw, 36px);
+      line-height: 1.12;
       letter-spacing: -1.2px;
       margin-bottom: 18px;
     }
@@ -659,16 +675,39 @@
     .hero-subline {
       font-size: 13.5px;
       line-height: 1.55;
-      padding: 0 4px;
+      padding: 0 6px;
+    }
+
+    .launch-strip-container {
+      margin-top: 32px;
+      gap: 24px;
     }
 
     .terminal-input-box {
-      padding: 10px 12px;
-      gap: 10px;
+      padding: 12px 14px;
+      gap: 12px;
+      min-height: 48px;
+      align-items: flex-start;
+    }
+
+    .terminal-text-group {
+      align-items: flex-start;
+    }
+
+    .prompt-dollar {
+      margin-top: 1px;
     }
 
     .terminal-code {
-      font-size: 11.5px;
+      font-size: 12px;
+      white-space: normal;
+      word-break: break-all;
+      line-height: 1.45;
+    }
+
+    .copy-action-btn {
+      align-self: flex-start;
+      margin-top: 1px;
     }
 
     .launch-header-row {
@@ -678,8 +717,17 @@
 
   @media (max-width: 360px) {
     .hero-title {
-      font-size: 26px;
+      font-size: clamp(20px, 6.8vw, 24px);
       letter-spacing: -0.8px;
+      line-height: 1.15;
+    }
+
+    .hero-subline {
+      font-size: 12.5px;
+    }
+
+    .terminal-code {
+      font-size: 11px;
     }
   }
 </style>

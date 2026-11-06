@@ -220,4 +220,19 @@
     font-family: var(--font-family-mono);
     font-weight: 600;
   }
+
+  @media (max-width: 640px) {
+    .preview-header {
+      padding: 12px 14px;
+      gap: 10px;
+    }
+    .preview-actions {
+      width: 100%;
+      justify-content: flex-start;
+      gap: 8px;
+    }
+    .preview-content {
+      padding: 14px;
+    }
+  }
 </style>

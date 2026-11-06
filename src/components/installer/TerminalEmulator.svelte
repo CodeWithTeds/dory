@@ -130,6 +130,9 @@
     display: flex;
     flex-direction: column;
     box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
   }
 
   .terminal-bar {
@@ -163,6 +166,10 @@
     display: flex;
     align-items: center;
     gap: 8px;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .pulse-live {
@@ -344,5 +351,28 @@
 
   @keyframes spin {
     to { transform: rotate(360deg); }
+  }
+
+  @media (max-width: 600px) {
+    .terminal-footer {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 12px;
+    }
+    .test-run-btn {
+      width: 100%;
+      justify-content: center;
+    }
+    .strip-gates {
+      gap: 6px;
+    }
+    .gate-indicator {
+      font-size: 10px;
+      padding: 3px 6px;
+    }
+    .terminal-body {
+      padding: 12px 14px;
+      min-height: 220px;
+    }
   }
 </style>

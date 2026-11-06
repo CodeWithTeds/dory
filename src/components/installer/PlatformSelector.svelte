@@ -200,6 +200,9 @@
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: var(--radius-sm);
     padding: 10px 14px;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
   }
 
   .command-prefix {
@@ -207,15 +210,18 @@
     font-size: 14px;
     color: #3875ff;
     user-select: none;
+    flex-shrink: 0;
   }
 
   .command-text {
     flex: 1;
+    min-width: 0;
     overflow-x: auto;
     font-family: var(--font-family-mono);
     font-size: 13px;
     color: #fafafa;
     white-space: nowrap;
+    scrollbar-width: thin;
   }
 
   .instructions-list {
@@ -238,14 +244,24 @@
   .inst-bullet {
     color: #60a5fa;
     font-family: var(--font-family-mono);
+    flex-shrink: 0;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 900px) {
+    .platforms-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 560px) {
     .platforms-grid {
       grid-template-columns: 1fr;
     }
     .platform-selector-card {
-      padding: 20px;
+      padding: 18px 14px;
+    }
+    .command-box {
+      padding: 8px 10px;
     }
   }
 </style>
