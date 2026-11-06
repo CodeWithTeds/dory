@@ -648,9 +648,9 @@
     }
 
     .hero-title {
-      font-size: clamp(34px, 8vw, 68px);
-      line-height: 1.08;
-      letter-spacing: -2px;
+      font-size: clamp(48px, 8.5vw, 76px);
+      line-height: 1.04;
+      letter-spacing: clamp(-3px, -0.045em, -2px);
       margin-bottom: 24px;
     }
 
@@ -666,14 +666,14 @@
     }
 
     .hero-title {
-      font-size: clamp(24px, 7.5vw, 36px);
-      line-height: 1.12;
-      letter-spacing: -1.2px;
-      margin-bottom: 18px;
+      font-size: clamp(38px, 10.5vw, 54px);
+      line-height: 1.04;
+      letter-spacing: clamp(-2.4px, -0.045em, -1.4px);
+      margin-bottom: 20px;
     }
 
     .hero-subline {
-      font-size: 13.5px;
+      font-size: 14px;
       line-height: 1.55;
       padding: 0 6px;
     }
@@ -717,13 +717,13 @@
 
   @media (max-width: 360px) {
     .hero-title {
-      font-size: clamp(20px, 6.8vw, 24px);
-      letter-spacing: -0.8px;
-      line-height: 1.15;
+      font-size: clamp(32px, 9.5vw, 38px);
+      letter-spacing: -1.2px;
+      line-height: 1.06;
     }
 
     .hero-subline {
-      font-size: 12.5px;
+      font-size: 13px;
     }
 
     .terminal-code {
