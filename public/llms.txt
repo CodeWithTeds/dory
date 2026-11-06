@@ -1,0 +1,24 @@
+# DORY — Autonomous Iterative AI Coding Agent Skill
+
+> DORY implements the Ralph Wiggum Cold-Start Pressure Cooker loop. Eliminates token bleed and drives cold-start development cycles through a deterministic Tri-Gate.
+
+## Overview
+DORY is an open-source autonomous coding skill designed for modern AI developer agents including Cursor, Claude Code, Gemini CLI, Antigravity, Cline, Windsurf, Aider, OpenAI Codex, Roo Code, and GitHub Copilot.
+Instead of dragging an ever-expanding, hallucination-prone chat conversation that bleeds tokens, DORY treats the local filesystem and git diffs as durable ground truth.
+
+## The D-O-R-Y Engineering Loop
+- **D — Do the contract**: Write explicit contract & failing test first before touching application code.
+- **O — Observe real results**: Execute native compiler, strict typechecker (PHPStan Level 8+, TypeScript strict), and test suite. Objective binary result: Exit Code 0 or fail.
+- **R — Recognize mistakes**: Capture compiler diagnostics directly from disk; isolate fix without conversational fluff or memory drift.
+- **Y — Yield verified code**: Commit to git only when all gates pass with Exit Code 0.
+
+## Installation
+Install DORY into any supported workspace:
+```bash
+npx skills add https://github.com/CodeWithTeds/dory --skill dory
+```
+
+## Links & Ground Truth
+- Official Website: https://codewithteds.github.io/dory/
+- GitHub Repository: https://github.com/CodeWithTeds/dory
+- Specification: https://github.com/CodeWithTeds/dory/blob/main/SKILL.md

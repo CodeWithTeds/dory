@@ -1,0 +1,27 @@
+# robots.txt for DORY (https://codewithteds.github.io/dory/)
+User-agent: *
+Allow: /
+
+# Search Engine & AI Search Crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+Sitemap: https://codewithteds.github.io/dory/sitemap.xml
